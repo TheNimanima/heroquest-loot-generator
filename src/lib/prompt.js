@@ -20,6 +20,8 @@ Classic era (Milton Bradley / Games Workshop):
 - Return of the Witch Lord Quest Pack (2021) — reboot version; 16 minis, 10 quests
 - Prophecy of Telor Quest Pack (2023) — new story arc; introduces Warlock hero
 - Spirit Queen's Torment Quest Pack (2023) — spirit world, undead queen; introduces Bard hero; 14 quests
+- Mage of the Mirror Quest Pack (2023) — mirror realm, illusion magic; story continues into Rise of the Dread Moon
+- Rise of the Dread Moon Quest Pack (2024) — 10 quests, 29 minis; re-releases Knight hero (new sculpt, same stats/skills as Commander of the Guardian Knights)
 - Against the Ogre Horde Quest Pack (2024) — reboot version; introduces Druid hero with wolf companion
 - Jungles of Delthrak Quest Pack (2024) — jungle setting; introduces Berserker and Explorer heroes; new artifacts and monsters
 - Joe Manganiello's Crypt of Perpetual Darkness (2025) — 10 quests, black dragon miniature
@@ -77,7 +79,7 @@ Base game heroes (all editions):
 - Wizard: 2 atk / 2 def / 4 BP / 6 MP — most powerful spells, very fragile, staff and dagger only
 
 Hero Collection heroes:
-- Knight (Commander of the Guardian Knights): heavy armor, shield focus, guardian-themed abilities; protective of party members
+- Knight (Commander of the Guardian Knights): heavy armor, shield focus, guardian-themed abilities; protective of party members. Originally limited exclusive (2021); re-released with new sculpt in Rise of the Dread Moon (2024) — same stats and 3 Knight skill cards.
 - Rogue Heir (Rogue Heir of Elethorn): Elf background; stealth, backstab, trap-finding; wears lightest armor of any hero
 - Wandering Monk (Path of the Wandering Monk): elemental martial arts; elemental skill cards; slightly more durable than Elf
 
