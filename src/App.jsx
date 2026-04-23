@@ -5,6 +5,7 @@ import CardBack from './components/CardBack'
 import LoadingCard from './components/LoadingCard'
 import SharePanel from './components/SharePanel'
 import BuilderControls from './components/BuilderControls'
+import CatalogView from './components/CatalogView'
 import { generateItem, isGenerationConfigured } from './lib/generateItem'
 import { randomPick, loadCatalog } from './lib/catalog'
 
@@ -21,9 +22,10 @@ export default function App() {
   const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
+  const [view, setView] = useState('forge') // 'forge' | 'catalog' (Builder only)
 
   const builderMode = isBuilderMode()
-  const catalogSize = useMemo(() => loadCatalog().length, [item])
+  const catalogSize = useMemo(() => loadCatalog().length, [item, view])
 
   const filters = {
     tier: tier !== '' ? Number(tier) : null,
@@ -92,15 +94,45 @@ export default function App() {
             : 'Drawn from the curated repository of treasures'}
         </p>
         {builderMode && (
-          <div style={{
-            position: 'absolute', top: 10, right: 14,
-            fontSize: 10, color: '#c9a227',
-            border: '1px solid #c9a227', borderRadius: 4,
-            padding: '2px 8px', letterSpacing: '0.1em', textTransform: 'uppercase',
-            fontWeight: 700,
-          }}>
-            BUILDER
-          </div>
+          <>
+            <div style={{
+              position: 'absolute', top: 10, right: 14,
+              fontSize: 10, color: '#c9a227',
+              border: '1px solid #c9a227', borderRadius: 4,
+              padding: '2px 8px', letterSpacing: '0.1em', textTransform: 'uppercase',
+              fontWeight: 700,
+            }}>
+              BUILDER
+            </div>
+            <div style={{
+              display: 'inline-flex',
+              marginTop: 14,
+              border: '1px solid #5a3a0a',
+              borderRadius: 6,
+              overflow: 'hidden',
+            }}>
+              {['forge', 'catalog'].map(v => (
+                <button
+                  key={v}
+                  onClick={() => setView(v)}
+                  style={{
+                    padding: '6px 18px',
+                    background: view === v ? '#5a2d00' : '#1a0a00',
+                    color: view === v ? '#f5e6c8' : '#7a5a2a',
+                    border: 'none',
+                    fontFamily: '"Cinzel", Georgia, serif',
+                    fontSize: 11,
+                    fontWeight: 700,
+                    letterSpacing: '0.1em',
+                    textTransform: 'uppercase',
+                    cursor: 'pointer',
+                  }}
+                >
+                  {v === 'forge' ? '⚒ Forge' : '📜 Catalog'}
+                </button>
+              ))}
+            </div>
+          </>
         )}
       </header>
 
@@ -112,11 +144,15 @@ export default function App() {
         alignItems: 'center',
         gap: 32,
         padding: '32px 24px 48px',
-        maxWidth: 720,
+        maxWidth: builderMode && view === 'catalog' ? 920 : 720,
         margin: '0 auto',
         width: '100%',
       }}>
 
+        {builderMode && view === 'catalog' ? (
+          <CatalogView />
+        ) : (
+        <>
         {/* Selection panel */}
         <section className="no-print" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <SelectionPanel
@@ -224,6 +260,8 @@ export default function App() {
               ? 'Choose criteria above, then forge a candidate item to review and save.'
               : 'Choose your criteria above, then draw your loot.'}
           </div>
+        )}
+        </>
         )}
 
       </main>
