@@ -1,20 +1,51 @@
-import { buildUserPrompt } from './prompt.js'
+import { buildUserPrompt, SYSTEM_BLOCKS } from './prompt.js'
+import { generateVarietySeed } from './seed.js'
 
 // Set VITE_WORKER_URL in .env.local to your Cloudflare Worker URL
 // For local dev without a worker, set VITE_API_KEY directly (never commit this)
 const WORKER_URL = import.meta.env.VITE_WORKER_URL || null
 const DEV_API_KEY = import.meta.env.VITE_API_KEY || null
 
-export async function generateItem({ tier, slot }) {
-  const userPrompt = buildUserPrompt({ tier, slot })
+const RECENT_KEY = 'hq-recent-items'
+const RECENT_LIMIT = 20
 
-  if (WORKER_URL) {
-    return callWorker(userPrompt)
-  } else if (DEV_API_KEY) {
-    return callClaudeDirect(userPrompt, DEV_API_KEY)
-  } else {
-    throw new Error('No API configured. Set VITE_WORKER_URL or VITE_API_KEY in .env.local')
+function getRecentNames() {
+  try {
+    const raw = localStorage.getItem(RECENT_KEY)
+    return raw ? JSON.parse(raw) : []
+  } catch {
+    return []
   }
+}
+
+function pushRecentName(name) {
+  try {
+    const list = getRecentNames()
+    list.unshift(name)
+    if (list.length > RECENT_LIMIT) list.length = RECENT_LIMIT
+    localStorage.setItem(RECENT_KEY, JSON.stringify(list))
+  } catch {
+    // localStorage unavailable — silently skip
+  }
+}
+
+export function clearRecentNames() {
+  try { localStorage.removeItem(RECENT_KEY) } catch {}
+}
+
+export async function generateItem({ tier, slot, hero }) {
+  const varietySeed = generateVarietySeed()
+  const recentNames = getRecentNames()
+  const userPrompt = buildUserPrompt({ tier, slot, hero, varietySeed, recentNames })
+
+  const item = WORKER_URL
+    ? await callWorker(userPrompt)
+    : DEV_API_KEY
+      ? await callClaudeDirect(userPrompt, DEV_API_KEY)
+      : (() => { throw new Error('No API configured. Set VITE_WORKER_URL or VITE_API_KEY in .env.local') })()
+
+  if (item?.name) pushRecentName(item.name)
+  return item
 }
 
 async function callWorker(userPrompt) {
@@ -34,8 +65,6 @@ async function callWorker(userPrompt) {
 }
 
 async function callClaudeDirect(userPrompt, apiKey) {
-  const { SYSTEM_PROMPT } = await import('./prompt.js')
-
   // In dev: Vite proxies /api/claude → https://api.anthropic.com/v1/messages (avoids CORS)
   // In production: use VITE_WORKER_URL instead (key never exposed in browser)
   const url = import.meta.env.DEV ? '/api/claude' : 'https://api.anthropic.com/v1/messages'
@@ -51,7 +80,7 @@ async function callClaudeDirect(userPrompt, apiKey) {
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',
       max_tokens: 512,
-      system: SYSTEM_PROMPT,
+      system: SYSTEM_BLOCKS,
       messages: [{ role: 'user', content: userPrompt }],
     }),
   })

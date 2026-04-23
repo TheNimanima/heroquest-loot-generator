@@ -9,6 +9,7 @@ import { generateItem } from './lib/generateItem'
 export default function App() {
   const [tier, setTier] = useState('')
   const [slot, setSlot] = useState('')
+  const [hero, setHero] = useState('')
   const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -22,6 +23,7 @@ export default function App() {
       const result = await generateItem({
         tier: tier !== '' ? Number(tier) : null,
         slot: slot !== '' ? slot : null,
+        hero: hero !== '' ? hero : null,
       })
       setItem(result)
     } catch (err) {
@@ -77,8 +79,10 @@ export default function App() {
           <SelectionPanel
             tier={tier}
             slot={slot}
+            hero={hero}
             onTierChange={setTier}
             onSlotChange={setSlot}
+            onHeroChange={setHero}
             onGenerate={handleGenerate}
             isLoading={loading}
           />

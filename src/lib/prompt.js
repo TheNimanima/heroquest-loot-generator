@@ -148,7 +148,18 @@ Generate exactly ONE item. Do not reproduce any official item exactly. Do not in
 
 ${ITEM_CATALOG}`
 
-export function buildUserPrompt({ tier, slot }) {
+// System content blocks for the Anthropic API. The whole prompt (rules + catalog)
+// is marked with cache_control so it's billed at ~10% after the first call within
+// the 5-minute cache window. Massive savings on the ~7,300-line catalog.
+export const SYSTEM_BLOCKS = [
+  {
+    type: 'text',
+    text: SYSTEM_PROMPT,
+    cache_control: { type: 'ephemeral' },
+  },
+]
+
+export function buildUserPrompt({ tier, slot, hero, varietySeed, recentNames }) {
   const parts = []
 
   if (tier) {
@@ -160,9 +171,21 @@ export function buildUserPrompt({ tier, slot }) {
     parts.push(`Slot: ${slot}`)
   }
 
-  if (parts.length === 0) {
-    return 'Generate a completely random HeroQuest loot item. Choose tier and slot freely for maximum variety.'
+  if (hero && hero !== 'Any') {
+    parts.push(`Target hero: ${hero}. The item must logically fit this hero's role; the heroRestriction field MUST include "${hero}" (alone or in a sensible group).`)
   }
 
-  return `Generate a HeroQuest loot item with these constraints:\n${parts.join('\n')}\n\nFor any unspecified attributes, choose freely and creatively.`
+  let prompt = parts.length === 0
+    ? 'Generate a completely random HeroQuest loot item. Choose tier and slot freely for maximum variety.'
+    : `Generate a HeroQuest loot item with these constraints:\n${parts.join('\n')}\n\nFor any unspecified attributes, choose freely and creatively.`
+
+  if (varietySeed) {
+    prompt += `\n\nCreative seed (use as inspiration — bend it freely if it doesn't fit, but let it pull you away from defaults): ${varietySeed}`
+  }
+
+  if (recentNames && recentNames.length) {
+    prompt += `\n\nDo NOT generate anything similar in name, theme, or core mechanic to these recently generated items: ${recentNames.join(', ')}`
+  }
+
+  return prompt
 }

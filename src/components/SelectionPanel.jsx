@@ -22,6 +22,22 @@ const SLOTS = [
   { value: 'Artifact', label: 'Artifact' },
 ]
 
+const HEROES = [
+  { value: '', label: 'Any Hero' },
+  { value: 'Barbarian', label: 'Barbarian' },
+  { value: 'Dwarf', label: 'Dwarf' },
+  { value: 'Elf', label: 'Elf' },
+  { value: 'Wizard', label: 'Wizard' },
+  { value: 'Knight', label: 'Knight' },
+  { value: 'Rogue', label: 'Rogue' },
+  { value: 'Monk', label: 'Monk' },
+  { value: 'Warlock', label: 'Warlock' },
+  { value: 'Bard', label: 'Bard' },
+  { value: 'Druid', label: 'Druid' },
+  { value: 'Berserker', label: 'Berserker' },
+  { value: 'Explorer', label: 'Explorer' },
+]
+
 const selectStyle = {
   width: '100%',
   padding: '10px 12px',
@@ -50,7 +66,7 @@ const labelStyle = {
   textTransform: 'uppercase',
 }
 
-export default function SelectionPanel({ tier, slot, onTierChange, onSlotChange, onGenerate, isLoading }) {
+export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotChange, onHeroChange, onGenerate, isLoading }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     onGenerate()
@@ -88,6 +104,20 @@ export default function SelectionPanel({ tier, slot, onTierChange, onSlotChange,
           </select>
         </div>
 
+        {/* Hero selector */}
+        <div>
+          <label style={labelStyle}>For Hero</label>
+          <select
+            value={hero || ''}
+            onChange={e => onHeroChange(e.target.value)}
+            style={selectStyle}
+          >
+            {HEROES.map(h => (
+              <option key={h.value} value={h.value}>{h.label}</option>
+            ))}
+          </select>
+        </div>
+
         {/* Hint text */}
         <p style={{
           fontSize: 12,
@@ -96,8 +126,8 @@ export default function SelectionPanel({ tier, slot, onTierChange, onSlotChange,
           margin: '0 0 4px',
           lineHeight: 1.4,
         }}>
-          {(!tier && !slot)
-            ? 'Leave both blank for a completely random loot drop.'
+          {(!tier && !slot && !hero)
+            ? 'Leave all blank for a fully random loot drop.'
             : 'Unset fields will be chosen freely by the generator.'}
         </p>
 
