@@ -1,10 +1,15 @@
 import { buildUserPrompt, SYSTEM_BLOCKS } from './prompt.js'
 import { generateVarietySeed } from './seed.js'
 
-// Set VITE_WORKER_URL in .env.local to your Cloudflare Worker URL
-// For local dev without a worker, set VITE_API_KEY directly (never commit this)
+// LIVE generation is now Builder-only. Public users draw from the static catalog.
+// Powered by Opus 4.7 for highest quality — calls are infrequent (manual curation).
+// Set VITE_API_KEY in .env.local for Builder mode (never committed).
 const WORKER_URL = import.meta.env.VITE_WORKER_URL || null
 const DEV_API_KEY = import.meta.env.VITE_API_KEY || null
+
+export function isGenerationConfigured() {
+  return Boolean(WORKER_URL || DEV_API_KEY)
+}
 
 const RECENT_KEY = 'hq-recent-items'
 const RECENT_LIMIT = 20
@@ -42,9 +47,12 @@ export async function generateItem({ tier, slot, hero }) {
     ? await callWorker(userPrompt)
     : DEV_API_KEY
       ? await callClaudeDirect(userPrompt, DEV_API_KEY)
-      : (() => { throw new Error('No API configured. Set VITE_WORKER_URL or VITE_API_KEY in .env.local') })()
+      : (() => { throw new Error('Builder mode requires VITE_API_KEY in .env.local') })()
 
-  if (item?.name) pushRecentName(item.name)
+  if (item?.name) {
+    pushRecentName(item.name)
+    item._seed = varietySeed
+  }
   return item
 }
 
@@ -78,7 +86,7 @@ async function callClaudeDirect(userPrompt, apiKey) {
       'anthropic-dangerous-direct-browser-access': 'true',
     },
     body: JSON.stringify({
-      model: 'claude-haiku-4-5-20251001',
+      model: 'claude-opus-4-7',
       max_tokens: 512,
       system: SYSTEM_BLOCKS,
       messages: [{ role: 'user', content: userPrompt }],
@@ -91,6 +99,18 @@ async function callClaudeDirect(userPrompt, apiKey) {
   }
 
   const data = await res.json()
+  if (data.usage) {
+    const u = data.usage
+    const cached = u.cache_read_input_tokens || 0
+    const created = u.cache_creation_input_tokens || 0
+    const fresh = u.input_tokens || 0
+    const out = u.output_tokens || 0
+    const billedInput = fresh + created + Math.round(cached * 0.1)
+    console.log(
+      `%c[Claude usage]%c input=${fresh} cache_created=${created} cache_read=${cached} output=${out} | est. billed input ≈ ${billedInput} tokens`,
+      'color:#c9a227;font-weight:bold', 'color:inherit'
+    )
+  }
   return parseItem(data.content[0].text)
 }
 

@@ -1,10 +1,18 @@
-import React, { useState } from 'react'
+import React, { useState, useMemo } from 'react'
 import SelectionPanel from './components/SelectionPanel'
 import ItemCard from './components/ItemCard'
 import CardBack from './components/CardBack'
 import LoadingCard from './components/LoadingCard'
 import SharePanel from './components/SharePanel'
-import { generateItem } from './lib/generateItem'
+import BuilderControls from './components/BuilderControls'
+import { generateItem, isGenerationConfigured } from './lib/generateItem'
+import { randomPick, loadCatalog } from './lib/catalog'
+
+function isBuilderMode() {
+  if (typeof window === 'undefined') return false
+  const params = new URLSearchParams(window.location.search)
+  return params.get('builder') === '1' && isGenerationConfigured()
+}
 
 export default function App() {
   const [tier, setTier] = useState('')
@@ -14,23 +22,44 @@ export default function App() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
 
+  const builderMode = isBuilderMode()
+  const catalogSize = useMemo(() => loadCatalog().length, [item])
+
+  const filters = {
+    tier: tier !== '' ? Number(tier) : null,
+    slot: slot !== '' ? slot : null,
+    hero: hero !== '' ? hero : null,
+  }
+
   const handleGenerate = async () => {
     setLoading(true)
     setError(null)
     setItem(null)
 
     try {
-      const result = await generateItem({
-        tier: tier !== '' ? Number(tier) : null,
-        slot: slot !== '' ? slot : null,
-        hero: hero !== '' ? hero : null,
-      })
-      setItem(result)
+      if (builderMode) {
+        const result = await generateItem(filters)
+        setItem(result)
+      } else {
+        const pick = randomPick(filters)
+        if (!pick) {
+          setError(catalogSize === 0
+            ? 'Catalog is still being built — no items yet. Check back soon.'
+            : 'No items match those filters yet. Try different criteria.')
+        } else {
+          setItem(pick)
+        }
+      }
     } catch (err) {
       setError(err.message || 'Failed to generate item. Please try again.')
     } finally {
       setLoading(false)
     }
+  }
+
+  const handleDiscard = () => {
+    setItem(null)
+    setError(null)
   }
 
   return (
@@ -43,6 +72,7 @@ export default function App() {
           textAlign: 'center',
           padding: '32px 24px 20px',
           borderBottom: '1px solid #3d1c02',
+          position: 'relative',
         }}
       >
         <h1 style={{
@@ -57,8 +87,21 @@ export default function App() {
           HeroQuest Loot Generator
         </h1>
         <p style={{ color: '#7a5a2a', fontSize: 14, margin: 0, fontStyle: 'italic' }}>
-          AI-generated treasure cards for your quests
+          {builderMode
+            ? `Builder Mode · ${catalogSize} item${catalogSize === 1 ? '' : 's'} in catalog`
+            : 'Drawn from the curated repository of treasures'}
         </p>
+        {builderMode && (
+          <div style={{
+            position: 'absolute', top: 10, right: 14,
+            fontSize: 10, color: '#c9a227',
+            border: '1px solid #c9a227', borderRadius: 4,
+            padding: '2px 8px', letterSpacing: '0.1em', textTransform: 'uppercase',
+            fontWeight: 700,
+          }}>
+            BUILDER
+          </div>
+        )}
       </header>
 
       {/* Main layout */}
@@ -85,6 +128,7 @@ export default function App() {
             onHeroChange={setHero}
             onGenerate={handleGenerate}
             isLoading={loading}
+            buttonLabel={builderMode ? '⚒ Forge New Item' : '⚔ Draw Loot'}
           />
         </section>
 
@@ -117,7 +161,6 @@ export default function App() {
             gap: 24,
             width: '100%',
           }}>
-            {/* Card front + back side-by-side on desktop */}
             <div style={{
               display: 'flex',
               flexWrap: 'wrap',
@@ -155,8 +198,16 @@ export default function App() {
               )}
             </div>
 
-            {/* Share / print controls */}
-            {item && <SharePanel item={item} />}
+            {/* Builder controls or public share */}
+            {item && builderMode && (
+              <BuilderControls
+                item={item}
+                onDiscard={handleDiscard}
+                onRegenerate={handleGenerate}
+                isLoading={loading}
+              />
+            )}
+            {item && !builderMode && <SharePanel item={item} />}
           </section>
         )}
 
@@ -169,7 +220,9 @@ export default function App() {
             fontStyle: 'italic',
             padding: '20px 0',
           }}>
-            Choose your criteria above, then forge your loot.
+            {builderMode
+              ? 'Choose criteria above, then forge a candidate item to review and save.'
+              : 'Choose your criteria above, then draw your loot.'}
           </div>
         )}
 
@@ -188,9 +241,6 @@ export default function App() {
       >
         HeroQuest is a trademark of Hasbro. This is a fan tool not affiliated with or endorsed by Hasbro.
       </footer>
-
-      {/* AdSense placeholder — replace with real script */}
-      {/* <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXX" crossOrigin="anonymous" /> */}
 
     </div>
   )

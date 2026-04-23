@@ -66,7 +66,7 @@ const labelStyle = {
   textTransform: 'uppercase',
 }
 
-export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotChange, onHeroChange, onGenerate, isLoading }) {
+export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotChange, onHeroChange, onGenerate, isLoading, buttonLabel }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     onGenerate()
@@ -158,7 +158,7 @@ export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotC
             if (!isLoading) e.target.style.background = 'linear-gradient(160deg, #5a2d00 0%, #3d1c00 100%)'
           }}
         >
-          {isLoading ? '⚔ Forging...' : '⚔ Generate Loot'}
+          {isLoading ? '⚔ Forging...' : (buttonLabel || '⚔ Generate Loot')}
         </button>
 
       </div>
