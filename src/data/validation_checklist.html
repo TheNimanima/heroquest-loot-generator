@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>HeroQuest Item Catalog — Validation Checklist</title>
+<style>
+  @page { size: letter; margin: 0.5in; }
+  * { box-sizing: border-box; }
+  body {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 10pt;
+    line-height: 1.35;
+    color: #000;
+    max-width: 7.5in;
+    margin: 0 auto;
+    padding: 0.4in;
+  }
+  h1 {
+    font-size: 18pt;
+    margin: 0 0 4pt 0;
+    border-bottom: 2px solid #000;
+    padding-bottom: 4pt;
+  }
+  h2 {
+    font-size: 13pt;
+    margin: 14pt 0 4pt 0;
+    background: #222;
+    color: #fff;
+    padding: 3pt 6pt;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-size: 11pt;
+    margin: 10pt 0 2pt 0;
+    border-bottom: 1px solid #888;
+    padding-bottom: 1pt;
+    page-break-after: avoid;
+  }
+  .intro {
+    font-style: italic;
+    font-size: 9pt;
+    color: #444;
+    margin-bottom: 8pt;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 2pt 0 6pt 0;
+  }
+  li {
+    padding: 1.5pt 0 1.5pt 22pt;
+    text-indent: -22pt;
+    page-break-inside: avoid;
+    border-bottom: 1px dotted #ddd;
+  }
+  .box {
+    display: inline-block;
+    width: 11pt;
+    height: 11pt;
+    border: 1.5px solid #000;
+    margin-right: 6pt;
+    text-align: center;
+    line-height: 9pt;
+    font-weight: bold;
+    font-size: 10pt;
+    vertical-align: -2pt;
+  }
+  .have { background: #e8e8e8; }
+  .have::before { content: "✓"; }
+  .miss { background: #fff; }
+  .item-name {
+    font-weight: bold;
+  }
+  .item-text {
+    color: #333;
+  }
+  .missing-text {
+    color: #b00;
+    font-weight: bold;
+  }
+  .note {
+    font-style: italic;
+    font-size: 9pt;
+    color: #666;
+    margin: 4pt 0;
+    padding-left: 8pt;
+    border-left: 2px solid #ccc;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 8pt 0;
+    font-size: 9pt;
+    page-break-inside: avoid;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 3pt 5pt;
+    text-align: left;
+  }
+  th { background: #ddd; }
+  .legend {
+    background: #f4f4f4;
+    border: 1px solid #888;
+    padding: 6pt 10pt;
+    margin: 6pt 0 12pt 0;
+    font-size: 9pt;
+  }
+  .pagebreak { page-break-before: always; }
+  @media print {
+    body { padding: 0; }
+    .no-print { display: none; }
+  }
+  .no-print {
+    background: #fffbe6;
+    border: 1px dashed #c90;
+    padding: 8pt;
+    margin-bottom: 12pt;
+    font-size: 9pt;
+  }
+</style>
+</head>
+<body>
+
+<div class="no-print">
+  <strong>To print:</strong> press <kbd>⌘ P</kbd> (or File → Print). Recommend Letter, portrait, default margins. This banner won't print.
+</div>
+
+<h1>HeroQuest Item Catalog — Validation Checklist</h1>
+<p class="intro">For each item: ✓ box (filled) = we have text — verify accuracy. Empty box = MISSING — please photograph.</p>
+
+<div class="legend">
+  <strong>Legend:</strong>
+  <span class="box have"></span> = have text (verify) &nbsp;&nbsp;
+  <span class="box miss"></span> = missing (photograph card) &nbsp;&nbsp;
+  <strong>Bulk tip:</strong> lay 5–10 cards out, snap one photo of the spread.
+</div>
+
+<h2>BASE GAME (Milton Bradley 1990 / Avalon Hill 2021 reboot)</h2>
+
+<h3>Equipment Cards (Armory)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Short Sword</span> — <span class="item-text">1 attack die — 50 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Hand Axe</span> — <span class="item-text">2 attack dice — 150 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Crossbow</span> — <span class="item-text">3 attack dice, ranged (target any visible square in line of sight) — 350 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Staff</span> — <span class="item-text">1 attack die, can attack diagonally — 100 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Broadsword</span> — <span class="item-text">3 attack dice — 250 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Battle Axe</span> — <span class="item-text">4 attack dice, two-handed — 450 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Spear</span> — <span class="item-text">2 attack dice, can attack diagonally — 150 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Helmet</span> — <span class="item-text">+1 defense die — 125 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Bracers</span> — <span class="item-text">+1 defense die — 250 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Shield</span> — <span class="item-text">+1 defense die, no two-handed weapons — 150 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Chain Mail</span> — <span class="item-text">+2 defense, halves movement — 275 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Plate Mail</span> — <span class="item-text">+3 defense, halves movement, no crossbow — 850 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Cloak of Protection</span> — <span class="item-text">+1 defense, can wear with armor (Wizard) — 250 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Toolkit</span> — <span class="item-text">Disarm/remove traps — 250 gold (non-Dwarf)</span></li>
+</ul>
+<p class="note">1990 EU had 14 cards; reboot may have additions. Confirm complete?</p>
+
+<h3>Artifact Cards (10 in main quest book)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Borin's Armor</span> — <span class="item-text">Roll 5 defense dice; cannot move and attack same turn (Dwarf only) — Quest 7</span></li>
+  <li><span class="box have"></span><span class="item-name">Elixir of Life</span> — <span class="item-text">Restore hero to starting BP; one use — Quest 9</span></li>
+  <li><span class="box have"></span><span class="item-name">Orc's Bane</span> — <span class="item-text">Sword; +1 attack die vs Orcs — Quest 11</span></li>
+  <li><span class="box have"></span><span class="item-name">Ring of Return</span> — <span class="item-text">One use; teleport to staircase — Quest 10</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Ring</span> — <span class="item-text">Re-cast any spell already cast this quest — Quest 14</span></li>
+  <li><span class="box have"></span><span class="item-name">Spirit Blade</span> — <span class="item-text">Sword (3 dice); affects creatures otherwise immune — Quest 13</span></li>
+  <li><span class="box have"></span><span class="item-name">Talisman of Lore</span> — <span class="item-text">+2 Mind Points — Quest 5</span></li>
+  <li><span class="box have"></span><span class="item-name">Wand of Magic</span> — <span class="item-text">Wizard/Elf; +1 attack die when casting attack spell — Quest 8</span></li>
+  <li><span class="box have"></span><span class="item-name">Wizard's Cloak</span> — <span class="item-text">Wizard rolls 4 defense dice — Quest 6</span></li>
+  <li><span class="box have"></span><span class="item-name">Wizard's Staff</span> — <span class="item-text">Wizard attacks diagonally with 1 die — Quest 12</span></li>
+</ul>
+
+<h3>Treasure Cards</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Gold (varies)</span> — <span class="item-text">5/10/15/25/50/100 gp cards</span></li>
+  <li><span class="box have"></span><span class="item-name">Gem</span> — <span class="item-text">50 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Jewel</span> — <span class="item-text">100 gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Treasure Chest</span> — <span class="item-text">Roll a die for gold</span></li>
+  <li><span class="box have"></span><span class="item-name">Potion of Healing</span> — <span class="item-text">Restore 4 BP (one use)</span></li>
+  <li><span class="box have"></span><span class="item-name">Potion of Defense</span> — <span class="item-text">+2 defense dice for one defense roll</span></li>
+  <li><span class="box have"></span><span class="item-name">Potion of Speed</span> — <span class="item-text">Roll extra movement die next turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Potion of Strength</span> — <span class="item-text">+2 attack dice next attack</span></li>
+  <li><span class="box have"></span><span class="item-name">Heroic Brew</span> — <span class="item-text">Extra attack action this turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Holy Water</span> — <span class="item-text">Throw at undead; auto-kills 1 Skeleton/Zombie/Mummy</span></li>
+  <li><span class="box have"></span><span class="item-name">Wandering Monster — Goblin</span></li>
+  <li><span class="box have"></span><span class="item-name">Wandering Monster — Orc</span></li>
+  <li><span class="box have"></span><span class="item-name">Wandering Monster — Skeleton</span></li>
+  <li><span class="box have"></span><span class="item-name">Hazard / Pit Trap</span> — <span class="item-text">Lose BP, lose turn</span></li>
+  <li><span class="box miss"></span><span class="item-name missing-text">Full treasure card list</span> — <span class="missing-text">photograph entire stack to verify composition</span></li>
+</ul>
+
+<h3>Spell Cards (4 elemental sets)</h3>
+<p><strong>Air:</strong></p>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Pass Through Rock</span> — <span class="item-text">Move through one wall this turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Tempest</span> — <span class="item-text">Force monster to skip its next turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Genie</span> — <span class="item-text">Summon a Genie to fight or carry</span></li>
+  <li><span class="box have"></span><span class="item-name">Swift Wind</span> — <span class="item-text">Double caster's movement</span></li>
+</ul>
+<p><strong>Water:</strong></p>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Heal Body</span> — <span class="item-text">Restore 4 BP to target hero</span></li>
+  <li><span class="box have"></span><span class="item-name">Veil of Mist</span> — <span class="item-text">Caster cannot be attacked next turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Sleep</span> — <span class="item-text">Target monster sleeps for 2 turns</span></li>
+  <li><span class="box have"></span><span class="item-name">Water of Healing</span> — <span class="item-text">Restore BP to all heroes in same room</span></li>
+</ul>
+<p><strong>Fire:</strong></p>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Ball of Flame</span> — <span class="item-text">3 attack dice, target up to 4 sq away</span></li>
+  <li><span class="box have"></span><span class="item-name">Fire of Wrath</span> — <span class="item-text">2 attack dice on adjacent monster</span></li>
+  <li><span class="box have"></span><span class="item-name">Courage</span> — <span class="item-text">Target hero rolls +2 attack dice</span></li>
+  <li><span class="box have"></span><span class="item-name">Firestorm</span> — <span class="item-text">3 attack dice on each monster in same room (Heroic ed.)</span></li>
+</ul>
+<p><strong>Earth:</strong></p>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Rock Skin</span> — <span class="item-text">Target rolls +2 defense dice</span></li>
+  <li><span class="box have"></span><span class="item-name">Stone Skin</span> — <span class="item-text">Variant of Rock Skin (verify if separate?)</span></li>
+  <li><span class="box have"></span><span class="item-name">Heal Body (Earth variant)</span></li>
+  <li><span class="box have"></span><span class="item-name">Earthquake</span> — <span class="item-text">Damage all monsters in adjacent rooms</span></li>
+</ul>
+<p class="note">Spell text wording varies between editions — verify against your reboot edition.</p>
+
+<h3>Mythic Tier Artifacts (HasLab 2021 stretch goal — 4 cards)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="item-name missing-text">Phantom Blade</span> — <span class="missing-text">FULL TEXT MISSING (concept: spectral sword ignores armor)</span></li>
+  <li><span class="box miss"></span><span class="item-name missing-text">Fortune's Longsword</span> — <span class="missing-text">FULL TEXT MISSING (concept: re-roll one attack die)</span></li>
+  <li><span class="box miss"></span><span class="item-name missing-text">Ring of Fortitude</span> — <span class="missing-text">FULL TEXT MISSING (concept: +2 BP)</span></li>
+  <li><span class="box miss"></span><span class="item-name missing-text">Rod of Telekinesis</span> — <span class="missing-text">FULL TEXT MISSING (concept: move objects at range)</span></li>
+</ul>
+
+<div class="pagebreak"></div>
+
+<h2>KELLAR'S KEEP (1989 / 2021 Reboot)</h2>
+
+<h3>Artifacts (10 in classic; reboot count to confirm)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Fire Ring</span> — <span class="item-text">Cast Ball of Flame once per quest without spell card — Quest 4</span></li>
+  <li><span class="box have"></span><span class="item-name">Magical Throwing Dagger</span> — <span class="item-text">Ranged 2 dice, returns after thrown — Quests 2 &amp; 6</span></li>
+  <li><span class="box miss"></span><span class="item-name missing-text">Remaining 8 artifacts</span> — <span class="missing-text">may overlap with 8 Spell Scrolls below; confirm</span></li>
+</ul>
+
+<h3>Spell Scrolls (one-use)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Ball of Flame</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Courage</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Fire of Wrath</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Genie</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Heal Body</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Rock Skin</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Sleep</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Tempest</span></li>
+</ul>
+
+<h3>Alchemist Shop Potions</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Potion of Battle</span> — <span class="item-text">Re-roll one attack die per attack for rest of quest</span></li>
+  <li><span class="box have"></span><span class="item-name">Potion of Dexterity</span> — <span class="item-text">Re-roll one defense die per defense for rest of quest</span></li>
+  <li><span class="box have"></span><span class="item-name">Potion of Restoration</span> — <span class="item-text">Restore 1 BP at start of each turn for rest of quest</span></li>
+  <li><span class="box have"></span><span class="item-name">Venom Antidote</span> — <span class="item-text">Cures poison effect</span></li>
+</ul>
+
+<h3>Equipment Cards (4)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Equipment card 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment card 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment card 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment card 4 — MISSING</span></li>
+</ul>
+
+<h2>RETURN OF THE WITCH LORD (1990 / 2021)</h2>
+
+<h3>Artifacts (10)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Anti-Poison Quill</span> — <span class="item-text">Immune to poison rest of quest</span></li>
+  <li><span class="box have"></span><span class="item-name">Arm Band of Healing</span> — <span class="item-text">Once per quest, restore 2 BP</span></li>
+  <li><span class="box have"></span><span class="item-name">Dust of Disappearance</span> — <span class="item-text">Once per quest, invisible until you attack</span></li>
+  <li><span class="box have"></span><span class="item-name">Magical Throwing Dagger</span> — <span class="item-text">Ranged 2 dice, returns after use</span></li>
+  <li><span class="box have"></span><span class="item-name">Rabbit Boots</span> — <span class="item-text">Step on trap: roll 1 die; white shield = evade</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Ball of Flame</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Courage</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Fire of Wrath</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Heal Body</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Pass Through Rock</span></li>
+</ul>
+<p class="note">Card count matches; verify text accuracy on each.</p>
+
+<h2>AGAINST THE OGRE HORDE (1990 / 2024 Reboot)</h2>
+<p class="note">No artifact cards in classic. 29 game cards total in 2024 reboot. Adds Druid hero.</p>
+
+<h3>Documented (partial)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Ogre Champion's Maul</span> — <span class="item-text">Two-handed; high attack dice (count unknown)</span></li>
+  <li><span class="box have"></span><span class="item-name">Stone Skin Potion</span> — <span class="item-text">Temporary defense (value unknown)</span></li>
+</ul>
+
+<h3>Druid Spell Cards (2024 reboot)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Druid Spell 1 — MISSING (shapeshift theme suggested)</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Druid Spell 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Druid Spell 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Additional Druid spells — MISSING (full count unknown)</span></li>
+</ul>
+
+<h3>Other 2024 reboot game cards</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Remaining ~25 cards — MISSING (monster, equipment, arena PvP)</span></li>
+</ul>
+
+<div class="pagebreak"></div>
+
+<h2>WIZARDS OF MORCAR (1991 EU only — 64 cards)</h2>
+<p class="note">Rare EU-exclusive. Adds Chaos Wizard spells used by GM. Most poorly-documented expansion online — every card is essentially new data.</p>
+
+<h3>Boon of Heroism Cards</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All Boon cards — MISSING</span></li></ul>
+
+<h3>Magical Barrier Cards</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">Ice Wall / Flame Wall / Stone Wall — MISSING</span></li></ul>
+
+<h3>3 New Chaos Wizard Spell Sets</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Spell Set 1 (full contents) — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Spell Set 2 (full contents) — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Spell Set 3 (full contents) — MISSING</span></li>
+</ul>
+
+<h2>PROPHECY OF TELOR (2023 — 14 cards)</h2>
+<p class="note">Introduces Warlock hero (Halfling).</p>
+
+<h3>Warlock Spell Cards (3)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Demonform</span> — <span class="item-text">Transform: extra attack dice + immunity to traps for one quest</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Warlock Spell 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Warlock Spell 3 — MISSING</span></li>
+</ul>
+
+<h3>Artifact Cards (4)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Artifact 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Artifact 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Artifact 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Artifact 4 — MISSING</span></li>
+</ul>
+
+<h3>Remaining cards (7 of 14)</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">Other game cards — MISSING (monster, equipment, etc.)</span></li></ul>
+
+<h2>SPIRIT QUEEN'S TORMENT (2023 — 15 cards)</h2>
+<p class="note">Introduces Bard hero (Human). 14 quests.</p>
+
+<h3>Bard Spell Cards</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Lullaby</span> — <span class="item-text">One per quest; target monster cannot act next turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Healing Song</span> — <span class="item-text">One per quest; restore BP to ally</span></li>
+  <li><span class="box have"></span><span class="item-name">Inspiring Tale</span> — <span class="item-text">+1 attack die to ally; recharges when allies roll 2 white shields</span></li>
+</ul>
+
+<h3>Remaining cards (~12 of 15)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Artifacts — MISSING (count unknown)</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Other Bard spells — MISSING (if any beyond the 3 above)</span></li>
+</ul>
+
+<div class="pagebreak"></div>
+
+<h2>MAGE OF THE MIRROR (2023 — 35 cards)</h2>
+<p class="note">Mirror realm setting. Best-documented modern expansion.</p>
+
+<h3>Elf Spell Cards (8)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Deep Sleep</span> — <span class="item-text">Target monster cannot act for 2 turns</span></li>
+  <li><span class="box have"></span><span class="item-name">Disappear</span> — <span class="item-text">Caster invisible until they attack</span></li>
+  <li><span class="box have"></span><span class="item-name">Double Image</span> — <span class="item-text">Duplicate; first attack against caster fails</span></li>
+  <li><span class="box have"></span><span class="item-name">Flashback</span> — <span class="item-text">Re-cast any spell already cast this quest</span></li>
+  <li><span class="box have"></span><span class="item-name">Hypnotic Blaze</span> — <span class="item-text">Target monster cannot attack you</span></li>
+  <li><span class="box have"></span><span class="item-name">Slow</span> — <span class="item-text">Halve target monster's movement</span></li>
+  <li><span class="box have"></span><span class="item-name">Timestop</span> — <span class="item-text">Take an extra action this turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Twist Wood</span> — <span class="item-text">Bend wooden objects (doors, weapons)</span></li>
+</ul>
+
+<h3>Chaos Spell Cards (7 — used by GM)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Dispel</span> — <span class="item-text">Cancel a hero's spell</span></li>
+  <li><span class="box have"></span><span class="item-name">Mind Blast</span> — <span class="item-text">Damage hero's Mind Points</span></li>
+  <li><span class="box have"></span><span class="item-name">Mirror Magic</span> — <span class="item-text">Reflect hero's spell back at them</span></li>
+  <li><span class="box have"></span><span class="item-name">Reanimation</span> — <span class="item-text">Bring a defeated monster back</span></li>
+  <li><span class="box have"></span><span class="item-name">Restore Chaos</span> — <span class="item-text">Heal a Chaos creature</span></li>
+  <li><span class="box have"></span><span class="item-name">Summon Wolves</span> — <span class="item-text">Add 2 wolves to the board</span></li>
+  <li><span class="box have"></span><span class="item-name">Werewolf's Curse</span> — <span class="item-text">Transform target</span></li>
+</ul>
+
+<h3>Artifacts (7)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Ancient Staff</span> — <span class="item-text">+1 die when casting attack spells</span></li>
+  <li><span class="box have"></span><span class="item-name">Bone Wand</span> — <span class="item-text">Cast 1 spell per quest without expending a spell card</span></li>
+  <li><span class="box have"></span><span class="item-name">Elven Boots</span> — <span class="item-text">+2 movement squares per turn</span></li>
+  <li><span class="box have"></span><span class="item-name">Elven Bow of Vindication</span> — <span class="item-text">Ranged 3 attack dice; +1 vs Chaos</span></li>
+  <li><span class="box have"></span><span class="item-name">Elven Bracers</span> — <span class="item-text">+1 defense die</span></li>
+  <li><span class="box have"></span><span class="item-name">Sky Orb</span> — <span class="item-text">Once per quest, see contents of one unrevealed room</span></li>
+  <li><span class="box have"></span><span class="item-name">Spell Scroll: Treasure Without Doom</span> — <span class="item-text">Search a room without triggering wandering monsters</span></li>
+</ul>
+
+<h3>Treasure Cards (4)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Air Walk</span> — <span class="item-text">Move through 1 sq containing a monster</span></li>
+  <li><span class="box have"></span><span class="item-name">Elven Cloak of Passage</span> — <span class="item-text">Pass through one wall this quest</span></li>
+  <li><span class="box have"></span><span class="item-name">Treasure Hoard!</span> — <span class="item-text">Roll 3 dice; gold = 100 × skulls</span></li>
+  <li><span class="box have"></span><span class="item-name">Wolfsbane Potion</span> — <span class="item-text">+2 attack dice vs wolves and werewolves</span></li>
+</ul>
+
+<h3>Remaining (~9 of 35)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Monster cards (Elven Archer, Elven Warrior, Giant Wolf, Ogre) — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Other game cards — MISSING</span></li>
+</ul>
+
+<div class="pagebreak"></div>
+
+<h2>RISE OF THE DREAD MOON (2024 — 58 cards)</h2>
+<p class="note">Re-releases Knight hero. Adds alchemy crafting.</p>
+
+<h3>Knight Skill Cards (3)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Knight Skill 1 — MISSING (party protection / guardian theme)</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Knight Skill 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Knight Skill 3 — MISSING</span></li>
+</ul>
+
+<h3>Alchemy Cards (~20)</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All ~20 — MISSING. Heroes earn reputation, craft potions from reagents (Wizards always; others need Reagent Kit)</span></li></ul>
+
+<h3>Equipment / Reputation Cards</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All new equipment — MISSING (purchasable with Reputation Tokens)</span></li></ul>
+
+<h3>Remaining</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All other cards — MISSING (monster cards, etc.)</span></li></ul>
+
+<h2>JUNGLES OF DELTHRAK (2024 — 36 cards)</h2>
+<p class="note">Introduces Berserker and Explorer heroes. Choose-your-own-adventure mechanic.</p>
+
+<h3>Berserker Skill Cards</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All Berserker skills — MISSING (damage focus; trigger on missing BP or cost BP)</span></li></ul>
+
+<h3>Explorer Skill Cards</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All Explorer skills — MISSING (mobility, scouting, trap detection)</span></li></ul>
+
+<h3>Animal Companion Cards</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">All companion cards — MISSING</span></li></ul>
+
+<h3>Other</h3>
+<ul><li><span class="box miss"></span><span class="missing-text">Monster cards, equipment, jungle terrain — MISSING</span></li></ul>
+
+<h2>CRYPT OF PERPETUAL DARKNESS (2025 — Joe Manganiello — 20 holographic foil cards)</h2>
+<p class="note">10 epic quests. Heavy metal / dark fantasy aesthetic.</p>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Acid Breath</span> — <span class="item-text">Acid variant of Firestorm (used by Venim, the acid dragon)</span></li>
+  <li><span class="box have"></span><span class="item-name">Oil of Acid Immunity</span> — <span class="item-text">One-use acid immunity (final quest only)</span></li>
+  <li><span class="box have"></span><span class="item-name">The Helpful Mouse</span> — <span class="item-text">Once per quest, look at one room's contents before entering</span></li>
+  <li><span class="box miss"></span><span class="missing-text">All other 17 foil cards — MISSING</span></li>
+</ul>
+
+<div class="pagebreak"></div>
+
+<h2>HERO COLLECTION: COMMANDER OF THE GUARDIAN KNIGHTS (2021)</h2>
+<p class="note">12 game cards. Re-released in Rise of the Dread Moon 2024.</p>
+
+<h3>Character Cards (2)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Knight (male variant) — MISSING stats/abilities</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Knight (female variant) — MISSING</span></li>
+</ul>
+
+<h3>Equipment Cards (4)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Equipment 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment 4 — MISSING</span></li>
+</ul>
+
+<h3>Knight Skill Cards (6)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Skill 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 4 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 5 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 6 — MISSING</span></li>
+</ul>
+
+<h2>HERO COLLECTION: ROGUE HEIR OF ELETHORN (2022)</h2>
+<p class="note">12 cards. Rogue (Elf background).</p>
+
+<h3>Character Cards (2 — male/female)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Rogue Stats</span> — <span class="item-text">1 atk / 2 def / 5 BP / 4 MP — no heavy armor</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Full character card text — MISSING</span></li>
+</ul>
+
+<h3>Equipment Cards (4)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Dagger</span> — <span class="item-text">1 attack die, can be thrown</span></li>
+  <li><span class="box have"></span><span class="item-name">Bandolier</span> — <span class="item-text">Holds extra throwing daggers/potions (capacity unknown)</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Equipment 4 — MISSING</span></li>
+</ul>
+
+<h3>Rogue Skill Cards (6)</h3>
+<ul>
+  <li><span class="box have"></span><span class="item-name">Combat Mobility</span> — <span class="item-text">Enhanced movement after attack (specific text unknown)</span></li>
+  <li><span class="box have"></span><span class="item-name">Ambidextrous</span> — <span class="item-text">Dual-wield; second weapon adds 1 attack die (specific text unknown)</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 3 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 4 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 5 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Skill 6 — MISSING</span></li>
+</ul>
+
+<h2>HERO COLLECTION: PATH OF THE WANDERING MONK (2023)</h2>
+<p class="note">7 game cards. 4 double-sided Elemental Style cards (8 sides total).</p>
+
+<h3>Character Cards (male/female)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Monk Stats — MISSING (no metal armor/shields; can use daggers, crossbows, hand axes, short swords, staves)</span></li>
+</ul>
+
+<h3>Elemental Style Cards (4 cards / 8 techniques)</h3>
+<ul>
+  <li><span class="box miss"></span><span class="missing-text">Wind technique 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Wind technique 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Earth technique 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Earth technique 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Water technique 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Water technique 2 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Fire technique 1 — MISSING</span></li>
+  <li><span class="box miss"></span><span class="missing-text">Fire technique 2 — MISSING</span></li>
+</ul>
+
+<div class="pagebreak"></div>
+
+<h2>SUMMARY OF GAPS</h2>
+
+<table>
+  <thead>
+    <tr><th>Source</th><th>Coverage</th><th>Photos Needed</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Base Game</td><td>~95%</td><td>Mythic Tier 4 artifacts; treasure stack verification</td></tr>
+    <tr><td>Kellar's Keep</td><td>~70%</td><td>4 equipment cards</td></tr>
+    <tr><td>Return of the Witch Lord</td><td>~100%</td><td>Verify text accuracy only</td></tr>
+    <tr><td>Against the Ogre Horde</td><td>~5%</td><td>Almost all cards (esp. 2024 reboot)</td></tr>
+    <tr><td><strong>Wizards of Morcar</strong></td><td><strong>~0%</strong></td><td>All 64 cards (rare expansion)</td></tr>
+    <tr><td>Prophecy of Telor</td><td>~10%</td><td>13 of 14 cards</td></tr>
+    <tr><td>Spirit Queen's Torment</td><td>~20%</td><td>12+ cards</td></tr>
+    <tr><td>Mage of the Mirror</td><td>~75%</td><td>Monster cards + remainder</td></tr>
+    <tr><td><strong>Rise of the Dread Moon</strong></td><td><strong>~5%</strong></td><td>All 58 cards</td></tr>
+    <tr><td><strong>Jungles of Delthrak</strong></td><td><strong>~5%</strong></td><td>All 36 cards</td></tr>
+    <tr><td>Crypt of Perpetual Darkness</td><td>~15%</td><td>17 of 20 cards</td></tr>
+    <tr><td>Knight Hero Collection</td><td>~5%</td><td>All 12 cards</td></tr>
+    <tr><td>Rogue Hero Collection</td><td>~50%</td><td>6+ cards</td></tr>
+    <tr><td>Monk Hero Collection</td><td>~10%</td><td>All 7 cards</td></tr>
+  </tbody>
+</table>
+
+<h2>HOW TO USE</h2>
+<ol>
+  <li><strong>Filled boxes (✓):</strong> verify text — if wrong, photograph card.</li>
+  <li><strong>Empty boxes:</strong> photograph card; legible is enough.</li>
+  <li><strong>Bulk approach:</strong> lay 5–10 cards out, snap one photo of the spread.</li>
+  <li><strong>Priority order:</strong>
+    <ul>
+      <li><strong>High:</strong> Wizards of Morcar, Rise of the Dread Moon, Jungles of Delthrak, Knight Collection</li>
+      <li><strong>Medium:</strong> Prophecy of Telor, Spirit Queen's Torment, Crypt of Perpetual Darkness, Monk Collection</li>
+      <li><strong>Low:</strong> base Mythic, Kellar's Keep equipment, Mage of the Mirror remainder</li>
+    </ul>
+  </li>
+</ol>
+
+</body>
+</html>
