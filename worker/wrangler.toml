@@ -1,0 +1,7 @@
+name = "heroquest-loot-generator"
+main = "index.js"
+compatibility_date = "2024-01-01"
+
+[vars]
+# CLAUDE_API_KEY is set as a secret, not here
+# Run: wrangler secret put CLAUDE_API_KEY
