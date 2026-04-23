@@ -4,8 +4,8 @@ const TIERS = [
   { value: '', label: 'Any Tier' },
   { value: 1, label: 'T1 — Legendary Artifact' },
   { value: 2, label: 'T2 — Ancient Relic' },
-  { value: 3, label: 'T3 — Epic Treasure' },
-  { value: 4, label: 'T4 — Base Treasure' },
+  { value: 3, label: 'T3 — Enchanted Item' },
+  { value: 4, label: 'T4 — Treasure Card' },
 ]
 
 const SLOTS = [

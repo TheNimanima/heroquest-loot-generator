@@ -3,8 +3,8 @@ import React from 'react'
 const TIER_LABELS = {
   1: 'Legendary Artifact',
   2: 'Ancient Relic',
-  3: 'Epic Treasure',
-  4: 'Base Treasure',
+  3: 'Enchanted Item',
+  4: 'Treasure Card',
 }
 
 const TIER_COLORS = {
@@ -14,46 +14,44 @@ const TIER_COLORS = {
   4: { border: '#8a7a5a', glow: 'rgba(138,122,90,0.3)', badge: '#7f8c8d', header: '#2a200a' },
 }
 
-const DICE_STYLES = {
-  white:  { bg: '#ffffff', color: '#1a0a00', border: '1px solid #aaa', label: 'W' },
-  black:  { bg: '#2c2c2c', color: '#ffffff', border: 'none', label: 'B' },
-  green:  { bg: '#2d6a2d', color: '#ffffff', border: 'none', label: 'G' },
-  purple: { bg: '#6a2d9e', color: '#ffffff', border: 'none', label: 'P' },
-  orange: { bg: '#c96a00', color: '#ffffff', border: 'none', label: 'O' },
-}
-
-function DiePip({ type }) {
-  const style = DICE_STYLES[type] || DICE_STYLES.white
+// Renders individual skull/shield dice pips (all HeroQuest combat dice are identical)
+function DiePip({ symbol }) {
+  const isSkull = symbol === 'skull'
   return (
     <span
+      title={isSkull ? 'Skull (attack die)' : 'Shield (defense die)'}
       style={{
         display: 'inline-flex',
         alignItems: 'center',
         justifyContent: 'center',
-        width: 26,
-        height: 26,
-        borderRadius: 5,
-        background: style.bg,
-        color: style.color,
-        border: style.border,
-        fontSize: 11,
-        fontWeight: 700,
+        width: 24,
+        height: 24,
+        borderRadius: 4,
+        background: isSkull ? '#4a0a0a' : '#1a2a4a',
+        border: `1px solid ${isSkull ? '#8b1a1a' : '#1a5a8b'}`,
+        fontSize: 13,
         margin: '0 2px',
-        fontFamily: 'monospace',
+        userSelect: 'none',
       }}
-      title={`${type} die`}
     >
-      {style.label}
+      {isSkull ? '💀' : '🛡'}
     </span>
   )
 }
 
-function DiceRow({ dice, label, icon }) {
-  if (!dice || dice.length === 0) return null
+function DiceRow({ count, label, icon, symbol }) {
+  if (!count || count === 0) return null
   return (
-    <div style={{ display: 'flex', alignItems: 'center', gap: 4, margin: '4px 0' }}>
-      <span style={{ fontSize: 13, color: '#5a3a0a', width: 60, flexShrink: 0 }}>{icon} {label}:</span>
-      <div>{dice.map((d, i) => <DiePip key={i} type={d} />)}</div>
+    <div style={{ display: 'flex', alignItems: 'center', gap: 6, margin: '4px 0' }}>
+      <span style={{ fontSize: 13, color: '#5a3a0a', width: 64, flexShrink: 0 }}>{icon} {label}:</span>
+      <div style={{ display: 'flex', alignItems: 'center', flexWrap: 'wrap' }}>
+        {Array.from({ length: count }, (_, i) => (
+          <DiePip key={i} symbol={symbol} />
+        ))}
+        <span style={{ fontSize: 11, color: '#5a3a0a', marginLeft: 4 }}>
+          ×{count}
+        </span>
+      </div>
     </div>
   )
 }
@@ -143,14 +141,14 @@ export default function ItemCard({ item, style: extraStyle }) {
       </div>
 
       {/* Dice stats */}
-      {(attackDice?.length > 0 || defenseDice?.length > 0) && (
+      {(attackDice > 0 || defenseDice > 0) && (
         <div style={{
           padding: '8px 14px',
           background: 'rgba(255,255,255,0.06)',
           borderBottom: '1px solid rgba(201,162,39,0.2)',
         }}>
-          <DiceRow dice={attackDice} label="Attack" icon="⚔" />
-          <DiceRow dice={defenseDice} label="Defense" icon="🛡" />
+          <DiceRow count={attackDice} label="Attack" icon="⚔" symbol="skull" />
+          <DiceRow count={defenseDice} label="Defend" icon="🛡" symbol="shield" />
         </div>
       )}
 
