@@ -1,3 +1,5 @@
+import ITEM_CATALOG from '../data/items_catalog.md?raw'
+
 // HeroQuest game context baked into the Claude system prompt
 export const SYSTEM_PROMPT = `You are a loot card generator for the official HeroQuest board game published by Hasbro/Avalon Hill (originally Milton Bradley, 1990; rebooted 2021). You generate new, original treasure cards that fit the established tone, power scale, and rules of the base game and its official expansions.
 
@@ -52,20 +54,14 @@ Power scale by tier:
 - T2 (rare): attackDice 3-4, defenseDice 2-3
 - T1 (legendary): attackDice 4-6, defenseDice 3-4
 
-## OFFICIAL ITEM EXAMPLES (for power calibration — do not reproduce these exactly)
-Base game: Short Sword (2 atk), Broadsword (3 atk), Battle Axe (3 atk + shatters on max roll), Longsword (3 atk), Crossbow (2 atk, ranged), Dagger (2 atk), Chain Mail (2 def), Plate Mail (3 def), Shield (2 def), Helmet (1 def vs Chaos Warriors), Borin's Armor (3 def, Dwarf only), Wand of Magic (cast 1 spell), Healing Potion (restore 4 BP), Holy Water (damage undead), Ring of Return (teleport to staircase), Spirit Blade (hits ethereal monsters)
+## OFFICIAL ITEM CATALOG REFERENCE
+A comprehensive catalog of real official HeroQuest items (base game + all expansions) is provided at the END of this prompt. Use it to:
+- Calibrate power levels by tier (a 4-attack-die weapon is rare and usually two-handed; 1-die items are starter gear)
+- Match naming conventions (e.g., "Borin's Armor", "Rabbit Boots", "Spell Scroll: [Name]", "Wand of Magic")
+- Match effect text style (conditional bonuses vs specific creatures, once-per-quest abilities, trade-offs)
+- Anchor flavor and aesthetic appropriately to the era/expansion implied by the requested tier or slot
 
-Kellar's Keep / Witch Lord era: Orc's Bane Axe (3 atk, extra die vs Orcs/Goblins), Witchlord's Amulet (2 def vs undead spells), Skeleton Key (opens any lock once)
-
-Ogre Horde era: Ogre Maul (4 atk, Barbarian/Berserker only), Stone Skin Potion (2 extra def dice for 1 turn)
-
-Spirit Queen's Torment / Bard era: Song of Warding (Bard; negate 1 attack per turn), Ghostveil Cloak (Elf/Rogue; pass through walls once per quest)
-
-Prophecy of Telor / Warlock era: Demon Pact Blade (3 atk; Warlock only; costs 1 BP on use), Fateweave Ring (re-roll any 1 die per quest)
-
-Jungles of Delthrak era: Berserker's Brand (4 atk; Berserker; triggers on missing BP threshold), Explorer's Compass (move through unexplored rooms without triggering traps)
-
-Monk / Knight era: Guardian's Bulwark (3 def; Knight only; adjacent ally takes no damage once per quest), Iron Bell Strike (2 atk + stun; Monk only; target skips next action)
+DO NOT reproduce any catalog item exactly. Use the catalog as your reference for how official cards read, then generate a NEW original item that fits the same world.
 
 ## ITEM SLOTS
 Valid slots: Weapon, Helmet, Armor, Shield, Boots, Ring, Amulet, Spell Scroll, Potion, Artifact
@@ -144,7 +140,13 @@ Respond with ONLY valid JSON, no other text:
   "heroRestriction": "Any" or a comma-separated list of heroes from: Barbarian, Dwarf, Elf, Wizard, Knight, Rogue, Monk, Warlock, Bard, Druid, Berserker, Explorer. Use logical groupings — e.g. "Barbarian, Berserker" for strength-focused items; "Wizard, Warlock, Bard" for magic users; "Dwarf, Rogue, Explorer" for trap/skill heroes; "Knight, Barbarian, Berserker, Dwarf" for heavy armor. Never restrict arbitrarily.
 }
 
-Generate exactly ONE item. Do not reproduce any official item exactly. Do not include explanation or commentary outside the JSON.`
+Generate exactly ONE item. Do not reproduce any official item exactly. Do not include explanation or commentary outside the JSON.
+
+---
+
+# OFFICIAL HEROQUEST ITEM CATALOG (REFERENCE — DO NOT REPRODUCE)
+
+${ITEM_CATALOG}`
 
 export function buildUserPrompt({ tier, slot }) {
   const parts = []

@@ -36,12 +36,17 @@ async function callWorker(userPrompt) {
 async function callClaudeDirect(userPrompt, apiKey) {
   const { SYSTEM_PROMPT } = await import('./prompt.js')
 
-  const res = await fetch('https://api.anthropic.com/v1/messages', {
+  // In dev: Vite proxies /api/claude → https://api.anthropic.com/v1/messages (avoids CORS)
+  // In production: use VITE_WORKER_URL instead (key never exposed in browser)
+  const url = import.meta.env.DEV ? '/api/claude' : 'https://api.anthropic.com/v1/messages'
+
+  const res = await fetch(url, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'x-api-key': apiKey,
       'anthropic-version': '2023-06-01',
+      'anthropic-dangerous-direct-browser-access': 'true',
     },
     body: JSON.stringify({
       model: 'claude-haiku-4-5-20251001',

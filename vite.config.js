@@ -22,5 +22,14 @@ export default defineConfig({
       }
     })
   ],
-  base: '/heroquest-loot-generator/'
+  base: '/heroquest-loot-generator/',
+  server: {
+    proxy: {
+      '/api/claude': {
+        target: 'https://api.anthropic.com',
+        changeOrigin: true,
+        rewrite: (path) => '/v1/messages',
+      }
+    }
+  }
 })
