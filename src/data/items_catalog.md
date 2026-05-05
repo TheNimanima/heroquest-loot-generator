@@ -1,161 +1,215 @@
 # HeroQuest Official Item Catalog
-*Reference data injected into the loot generator system prompt for accurate naming, power calibration, and effect patterns. Compiled from HeroScribe, BoardGameGeek, official Hasbro rulebooks, and community archives.*
-
-*Note: 2024-2025 expansion card lists are sparsely documented online. Where specific cards are unknown, the section notes the gap rather than fabricating entries.*
+*Reference data for the loot generator system prompt. Compiled from official Hasbro/Avalon Hill rulebooks, physical card scans (Nima's collection), HeroScribe, and BoardGameGeek.*
 
 ---
 
 ## BASE GAME — MILTON BRADLEY 1990 / AVALON HILL 2021 REBOOT
 
-### Equipment Cards (purchasable from Armory between quests)
-- **Short Sword** — 1 attack die — 50 gold
-- **Hand Axe** — 2 attack dice — 150 gold
-- **Crossbow** — 3 attack dice, ranged (target any visible square in line of sight) — 350 gold
-- **Staff** — 1 attack die, can attack diagonally — 100 gold
-- **Broadsword** — 3 attack dice — 250 gold
-- **Battle Axe** — 4 attack dice, two-handed (cannot use shield) — 450 gold
-- **Spear** — 2 attack dice, can attack diagonally — 150 gold
-- **Helmet** — +1 defense die — 125 gold
-- **Bracers** — +1 defense die — 250 gold
-- **Shield** — +1 defense die, cannot be used with two-handed weapons — 150 gold
-- **Chain Mail** — +2 defense dice, halves movement to half result on red die — 275 gold
-- **Plate Mail** — +3 defense dice, halves movement, cannot use crossbow — 850 gold
-- **Cloak of Protection** — +1 defense die, can be worn with armor — 250 gold (Wizard only)
-- **Toolkit** — Disarm and remove traps — 250 gold (non-Dwarf needs this)
+### Equipment (Armory — purchasable between quests)
 
-### Artifact Cards (10 quest rewards in main game)
-1. **Borin's Armor** — Roll 5 defense dice instead of usual armor; cannot move and attack same turn (Dwarf only); found Quest 7
-2. **Elixir of Life** — Drink to restore hero to starting Body Points; one use; found Quest 9
-3. **Orc's Bane** — Sword that adds 1 attack die when fighting Orcs; found Quest 11
-4. **Ring of Return** — One use; teleport hero back to staircase; found Quest 10
-5. **Spell Ring** — Re-cast any one spell already cast this quest; found Quest 14
-6. **Spirit Blade** — Sword (3 attack dice) that affects creatures otherwise immune; found Quest 13
-7. **Talisman of Lore** — +2 Mind Points; found Quest 5
-8. **Wand of Magic** — Wizard/Elf adds 1 attack die when casting an attack spell; found Quest 8
-9. **Wizard's Cloak** — Wizard rolls 4 defense dice instead of 2; found Quest 6
-10. **Wizard's Staff** — Allows the Wizard to attack diagonally with 1 attack die; found Quest 12
+| Item | Type | Effect | Cost |
+|------|------|--------|------|
+| Dagger | Weapon | 1 attack die | 25g |
+| Shortsword | Weapon | 2 attack dice. Starting weapon for Dwarf and Elf. | 100g |
+| Broadsword | Weapon | 3 attack dice. Starting weapon for Barbarian. | 250g |
+| Longsword | Weapon | 3 attack dice. Functionally identical to Broadsword in dice. | 350g |
+| Battle Axe | Weapon | 4 attack dice. Two-handed — cannot use Shield. Strongest purchasable melee weapon. | 450g |
+| Crossbow | Weapon | 3 attack dice. Ranged (line of sight). Cannot fire if monster is adjacent. Two-handed. | 350g |
+| Staff | Weapon | 1 attack die. Can attack diagonally. Wizard's starting weapon. | 100g |
+| Handaxe | Weapon | 2 attack dice. Can be thrown (one use when thrown). Not usable by Wizard. | 200g |
+| Rapier | Weapon | 2 attack dice. Can attack diagonally. Not usable by Wizard. | 250g |
+| Helmet | Armor | +1 defense die. Not usable by Wizard. | 125g |
+| Shield | Armor | +1 defense die. Cannot be used with two-handed weapons. | 100g |
+| Bracers | Armor | +1 defense die. | 250g |
+| Chain Mail | Armor | +2 defense dice. Movement reduced to 1 red die instead of 2. | 350g |
+| Plate Mail | Armor | +3 defense dice. Movement reduced to 1 red die. Cannot use Crossbow. | 850g |
+| Tool Kit | Utility | Allows disarming traps after detection. Dwarf can do this naturally. | 250g |
+| Smoke Bomb | Utility | Cloud of smoke envelops one monster — all heroes get unseen passage through that monster's space until its next turn. One use. | 100g |
+| Caltrops | Utility | Place on any square. Creature passing through: roll 1 combat die — on skull, creature ends movement and hero gets +1 defend. Removed after one quest. | 100g |
+| Reagent Kit | Utility | Transform 1 alchemical reagent into a potion. 5 uses then lost. | 400g |
 
-### Treasure Cards (drawn when searching rooms)
-- **Gold (varies)** — 5, 10, 15, 25, 50, 100 gold pieces
-- **Gem** — Worth 50 gold
-- **Jewel** — Worth 100 gold
-- **Treasure Chest** — Roll a die for gold amount
-- **Potion of Healing** — Restore 4 Body Points (one use)
-- **Potion of Defense** — Roll 2 extra defense dice for one defense roll
-- **Potion of Speed** — Roll extra movement die on next turn
-- **Potion of Strength** — Add 2 attack dice to next attack
-- **Heroic Brew** — Take an extra attack action this turn
-- **Holy Water** — Throw at undead, kills one Skeleton/Zombie/Mummy automatically
-- **Wandering Monster** — A monster appears and attacks (Goblin, Orc, Skeleton, etc.)
-- **Hazard / Pit Trap** — Lose Body Points, lose turn
+### Artifacts (base game quest rewards)
 
-### Spell Cards (4 elemental sets — Air, Water, Fire, Earth)
-**Air:** Pass Through Rock, Tempest, Genie, Swift Wind
-**Water:** Heal Body, Veil of Mist, Sleep, Water of Healing
-**Fire:** Ball of Flame, Fire of Wrath, Courage, Firestorm (Heroic ed.)
-**Earth:** Rock Skin, Stone Skin, Heal Body (variant), Earthquake
+| Artifact | Slot | Effect | Source |
+|----------|------|--------|--------|
+| Borin's Armor | Armor | +3 defense dice. Does NOT reduce movement (unlike Plate Mail). Stacks with Shield and Helmet. | Quest 7 |
+| Elixir of Life | — | If hero is killed (0 BP), automatically restores full Body Points. Single use ever — consumed permanently. Most valuable item in the game. | Quest 9 |
+| Orc's Bane | Weapon | 4 attack dice. Bonus damage against Orcs and Goblins. | Quest 11 |
+| Ring of Return | Ring | When hero would be killed, teleports to staircase with 1 BP remaining. Resets each quest. | Quest 10 |
+| Spell Ring | Ring | Re-cast any one spell already cast this quest. One use per quest. | Quest 14 |
+| Spirit Blade | Weapon | 3 attack dice normally; 5 attack dice against Undead. Affects creatures otherwise immune. | Quest 13 |
+| Talisman of Lore | Amulet | +2 Mind Points while worn. | Quest 5 |
+| Wand of Magic | Weapon | Recover one previously-cast spell. Usable once per quest. Permanent item. | Quest 8 |
+| Wizard's Cloak | Armor | Wizard rolls 4 defense dice instead of 2. Wizard only. | Quest 6 |
+| Wizard's Staff | Weapon | Allows Wizard to attack diagonally with 1 attack die. Wizard only. | Quest 12 |
+| Spertano's Longsword | Weapon | Named artifact sword. Details from 2021 HasLab edition. | HasLab |
+| Rod of Cnidaride | Weapon | Named artifact rod. Details from 2021 HasLab edition. | HasLab |
 
-### Mythic Tier Artifacts (HasLab 2021 stretch goal exclusives)
+### Mythic Artifacts (HasLab 2021 stretch goal exclusives)
+
 - **Phantom Blade** — Spectral sword that ignores monster armor
 - **Fortune's Longsword** — Re-roll one attack die per attack
 - **Ring of Fortitude** — +2 Body Points while worn
 - **Rod of Telekinesis** — Move objects/open doors at range
+
+### Treasure Cards (drawn when searching rooms)
+
+**Gold cards:** 25g ×4, 50g ×2, 100g ×2, 200g ×1 (total 600g in deck), plus Gem (100g) and Jewels ×2
+**Beneficial cards:**
+- **Potion of Healing** ×3 — Restore up to 4 Body Points (one use)
+- **Heroic Brew** — Roll 2 additional combat dice on next attack, then discard
+- **Potion of Strength** — Add 2 attack dice to next attack
+- **Potion of Defense** — Roll 2 extra defense dice for one defense roll
+- **Holy Water** — Throw at adjacent Undead. Roll 2 dice, skulls = damage, monster cannot defend.
+**Hazard cards:**
+- **Wandering Monster** ×6 — Zargon places a monster adjacent to the hero
+- **Hazard!** ×4 — Pit Trap (lose 1 BP), Falling Block (roll 2 defend dice; each non-shield = 1 BP), Rockfall (lose 1 BP)
+
+### Chest Treasure Cards (modern editions)
+
+- **Potion of Magical Aptitude** — Spell-related bonus
+- **Potion of Fire Resistance** — Negates fire-based damage for one quest
+- **Potion of Charm** — Social/persuasion effect
+- **Potion of Magic Resistance** — Ignores effect of any 1 spell targeting the drinker
+- **Potion of Alchemy** — Alchemy-related effect
+- **Magical Trap** ×2 — Trap-type hazard
+- **Poison!** — Damaging trap masquerading as treasure
+- **Nothing!** — Empty chest
+
+### Spell Cards (4 elemental schools — 3 spells each)
+
+**Air:** Swift Wind, Tempest, Genie
+**Water:** Water of Healing, Sleep, Veil of Mist
+**Fire:** Ball of Flame, Fire of Wrath, Courage
+**Earth:** Rock Skin, Pass Through Rock, Heal Body
 
 ---
 
 ## KELLAR'S KEEP (1989 Classic / 2021 Reboot)
 
 ### Artifacts
-1. **Fire Ring** — Cast Ball of Flame once per quest without using a spell card; Quest 4
-2. **Magical Throwing Dagger** — Ranged weapon, 2 attack dice, returns after thrown; Quests 2 & 6
+- **Fire Ring** — Cast Ball of Flame once per quest without using a spell card
+- **Magical Throwing Dagger** — Ranged weapon, 2 attack dice, returns after thrown
 
-### Spell Scrolls (one-use casting cards)
-- **Spell Scroll: Ball of Flame** — Casts Ball of Flame
-- **Spell Scroll: Courage** — Casts Courage
-- **Spell Scroll: Fire of Wrath** — Casts Fire of Wrath
-- **Spell Scroll: Genie** — Casts Genie
-- **Spell Scroll: Heal Body** — Casts Heal Body
-- **Spell Scroll: Rock Skin** — Casts Rock Skin
-- **Spell Scroll: Sleep** — Casts Sleep
-- **Spell Scroll: Tempest** — Casts Tempest
+### Spell Scrolls (one-use)
+Spell Scroll: Ball of Flame, Courage, Fire of Wrath, Genie, Heal Body, Rock Skin, Sleep, Tempest
 
 ### Alchemist Shop (purchasable potions)
-- **Potion of Battle** — Re-roll one attack die per attack for the rest of this quest
-- **Potion of Dexterity** — Re-roll one defense die per defense for the rest of this quest
-- **Potion of Restoration** — Restore 1 Body Point at the start of each turn for rest of quest
-- **Venom Antidote** — Cures poison effect
+- **Potion of Battle** — Re-roll all attack dice once (200g)
+- **Potion of Dexterity** — +6 movement squares OR auto-jump pit traps (100g)
+- **Potion of Restoration** — Restore 1 BP and 1 MP (300g)
+- **Venom Antidote** — Restores up to 2 BP if poisoned by needles or darts (300g)
 
 ---
 
 ## RETURN OF THE WITCH LORD (1990 Classic / 2021 Reboot)
 
 ### Artifacts
-1. **Anti-Poison Quill** — Hero is immune to poison effects for the rest of the quest
-2. **Arm Band of Healing** — Once per quest, restore 2 Body Points
-3. **Dust of Disappearance** — Once per quest, become invisible until you attack (monsters can't target you)
-4. **Magical Throwing Dagger** — Ranged weapon, 2 attack dice, returns after use
-5. **Rabbit Boots** — When stepping on a trap, roll 1 combat die; on white shield, evade the trap
-6. **Spell Scroll: Ball of Flame** — One-use Ball of Flame
-7. **Spell Scroll: Courage** — One-use Courage
-8. **Spell Scroll: Fire of Wrath** — One-use Fire of Wrath
-9. **Spell Scroll: Heal Body** — One-use Heal Body
-10. **Spell Scroll: Pass Through Rock** — One-use Pass Through Rock
+- **Anti-Poison Quill** — Hero is immune to poison effects for the rest of the quest
+- **Arm Band of Healing** — Once per quest, restore 2 Body Points
+- **Dust of Disappearance** — Once per quest, become invisible until you attack
+- **Magical Throwing Dagger** — Ranged weapon, 2 attack dice, returns after use
+- **Rabbit Boots** — When stepping on a trap, roll 1 combat die; on white shield, evade the trap
+- **Staff of Teleportation** — Teleport to any visible square once per quest
+
+### Spell Scrolls (one-use)
+Spell Scroll: Ball of Flame, Courage, Fire of Wrath, Heal Body, Pass Through Rock
+
+### Return of the Witch Lord Spells (Zargon/Necromancer)
+Mind Burst, Mind Lock, Dominate, Skulls of Doom, Call Skeletons, Raise the Dead, Fear, Death Bolt, Summon Mummy
+
+---
+
+## THE FROZEN HORROR (1992 Classic / 2024 Reboot)
+
+### Artifacts
+- **Snowwiccaa of Ispeel** — Named artifact; cold-themed
+- **Amulet of the North** — Cold-environment protection artifact
+- **Ring of Warmth** — Negates cold-environment penalties
+- **Armband of Ice** — Cold-themed defensive artifact
+
+### Barbarian-Restricted Potions
+- **Potion of Icy Strength** (200g) — After next attack, causes 2× as many BP as skulls rolled. Barbarian only.
+- **Potion of Rejuvenation** (500g) — Restore up to 6 lost BP (roll 1 red die to determine). Barbarian only.
+- **Potion of Frost Skin** (300g) — +1 defend die when no monster in line of sight. Barbarian only.
+- **Potion of Battle Rage** (400g) — Attack dice ignore enemy defend. Barbarian only.
+
+### Frozen Horror Potions
+- **Potion of Warmth** — Negates cold-environment penalties
+- **Potion of Magic Resistance** — Ignores effect of any 1 spell targeting the drinker
+
+### Cold Spells (6 new spells)
+Soothe, Mind Freeze, Ice Storm, Skate, Ice Wall, Chill
+
+### Frozen Horror Spell Scrolls
+7 Spell Scrolls included (standard elemental spells)
+
+### Mercenaries (hireable NPCs)
+| Mercenary | Move | Atk | Def | Body | Mind | Cost |
+|-----------|------|-----|-----|------|------|------|
+| The Swordsman | 5 | 4 | 5 | 2 | 2 | 100g |
+| The Halberdier | 6 | 3 | 3 | 2 | 2 | 75g |
+| The Crossbowman | 6 | 3 | 3 | 2 | 2 | 75g |
+| The Scout | 9 | 2 | 3 | 2 | 2 | 50g (detects/disarms traps) |
 
 ---
 
 ## AGAINST THE OGRE HORDE (1990 Classic / 2024 Reboot)
 
-*No artifact cards in this expansion. 29 game cards total.*
+### Druid Hero (2024 reboot addition)
+- Druid Spell Cards — Shapeshift and nature spells (specific names vary by edition)
+- Wolf companion mechanic
 
-### Documented Items
-- **Ogre Champion's Maul** — Massive two-handed weapon (high attack dice)
-- **Stone Skin Potion** — Temporary defense boost
-- **Druid Spell Cards** (2024 reboot) — Shapeshift spells; full names not documented online
+### Mercenary
+- **Ogre Mercenary** — Move 8, Atk 4, Def 4, Body 4, Mind 1, Cost 350g
 
-### Notes
-- 2024 reboot adds Druid hero with wolf companion
-- New mechanic: Player-vs-Player arena tournament mode
+### Zargon Spells
+Orc Berserker, Sharpen Blades, Shield of Protection, Spirit of Vengeance, Call Goblins, Call Orcs
 
 ---
 
 ## WIZARDS OF MORCAR (1991 EU only)
 
-*64 game cards total. EU-exclusive release with limited online documentation.*
+*64 game cards total. EU-exclusive release.*
 
 ### Documented Categories
 - **Boon of Heroism Cards** — Purchasable ability enhancements for heroes
 - **Magical Barrier Cards** — Ice Wall, Flame Wall, Stone Wall (battlefield obstacles)
 - **3 New Spell Sets** — For Chaos Wizards opposing the heroes
 
-### Specific Card Names
-*Not documented in accessible sources.*
+### Wizard Spells (from Wizards of Morcar / Elf extra spells)
+Timestop, Twist Wood, Slow, Hypnotic Blaze, Flashback, Double Image, Disappear, Deep Sleep
 
 ---
 
 ## PROPHECY OF TELOR (2023 Avalon Hill)
 
-*14 game cards. Introduces Warlock hero (Halfling).*
+*Introduces Warlock hero (Halfling).*
 
-### Warlock Spell Cards (3 cards)
-- **Demonform** — Transform into demonic form: extra attack dice + immunity to traps for one quest
-- **Two additional Warlock spells** — Each one-use per quest (specific names not documented)
+### Warlock Spell Cards
+- **Demonform** — Transform into demonic form: extra attack die, immune to traps. Reverts when damaged. Restored on kill.
+- **Shapeshift** — Transformation spell
 
-### Artifact Cards
-- **4 artifacts** — Includes spell scrolls; specific names not fully documented online
+### Warlock-Style Spells (shadow/darkness school)
+Arrows of the Night, Clairvoyance, Unseen, Chains of Darkness, Future Sight, Invisibility, Cloak of Shadows, Treasure Horde, Wall of Stone
 
 ---
 
 ## SPIRIT QUEEN'S TORMENT (2023 Avalon Hill)
 
-*15 game cards. Introduces Bard hero (Human). 14 quests.*
+*Introduces Bard hero (Human). 14 quests.*
 
 ### Bard Spell Cards
-- **Lullaby** — One-use per quest; target monster cannot act next turn
-- **Healing Song** — One-use per quest; restore Body Points to ally
+- **Lullaby** — Target monster cannot act next turn
+- **Healing Song** — Restore Body Points to ally
 - **Inspiring Tale** — Grants +1 attack die to target ally; rechargeable when allies roll 2 white shields
+- **Dark Wings** — Movement/escape ability
+- **Lifeforce** — HP-related spell
+- **Pixie** — Summoning/utility spell
+- **Fear** — Debuff spell targeting monsters
 
-### Other Cards
-*Full artifact/equipment list not documented online.*
+### Zargon Spells
+Dreadlights, Summon Specters, Channel Dread
 
 ---
 
@@ -174,13 +228,7 @@
 - **Twist Wood** — Bend wooden objects (doors, weapons)
 
 ### Chaos Spell Cards (7)
-- **Dispel** — Cancel a hero's spell
-- **Mind Blast** — Damage hero's Mind Points
-- **Mirror Magic** — Reflect hero's spell back at them
-- **Reanimation** — Bring a defeated monster back
-- **Restore Chaos** — Heal a Chaos creature
-- **Summon Wolves** — Add 2 wolves to the board
-- **Werewolf's Curse** — Transform target
+Reanimation, Dispel, Restore Dread, Mind Blast, Summon Wolves, Mirror Magic, Werewolf's Curse
 
 ### Artifacts (7)
 - **Ancient Staff** — +1 die when casting attack spells
@@ -190,6 +238,12 @@
 - **Elven Bracers** — +1 defense die
 - **Sky Orb** — Once per quest, see contents of one unrevealed room
 - **Spell Scroll: Treasure Without Doom** — Search a room without triggering wandering monsters
+
+### Elf-Restricted Potions
+- **Potion of Vision** (500g) — See all secret doors and traps within 4 squares. Elf only.
+- **Potion of Speed** (500g) — Move 12 squares this turn instead of rolling; may pass through monsters. Suffer 1 BP after. Elf only.
+- **Potion of Superior Restoration** (800g) — Restore 1 BP + 1 MP; may also cure werewolf curse.
+- **Potion of Recall** (400g) — Recover one spell cast earlier in current quest. Elf only.
 
 ### Treasure Cards (4)
 - **Air Walk** — Move through a single square containing a monster
@@ -203,19 +257,19 @@
 
 *58 game cards with alchemy crafting mechanics. Re-releases Knight hero.*
 
-### Knight Skill Cards (3)
-- **Three Knight class abilities** — Specific names not documented online
-- Theme: Heavy armor, party protection, guardian-style combat
+### Knight Skill Cards
+- **Knight's Challenge** — Combat taunt / aggro ability
+- **Shield Block** — Defensive reaction ability
+- **Stalwart** — Endurance / standing-ground ability
+- **Peacekeeper** — Party protection ability
+- **Hold the Line** — Defensive positioning ability
 
-### Alchemy Cards (~20)
-- **Reagent ingredients** for crafting
-- **Pre-made potions** purchasable at shop
-- Documented potion types: Dexterity, Defense, Restoration, Battle (returning from Kellar's Keep era)
-- **Reagent Kit** — Allows non-Wizard heroes to craft potions
+### Alchemy System
+**Ingredients:** Unidentified Ingredient, Sacred Plant, Mysterious Flower, Poison! (large ingredient deck)
+**Crafted Potions:** Potion of Battle, Potion of Magic Resistance, Potion of Magic, Ogre Grog, Potion of Icy Strength, Potion of Unforeseen Fate, Potion of Lesser Healing, Potion of Speed, Potion of Superior Restoration, Celerity, Potion of Vision, Potion of Strength, Potion of Battle Rage, Potion of Healing, Potion of Restoration, Heroic Brew, Potion of Frost Skin, Potion of Recall, Potion of Defense, Potion of Dexterity
 
-### Equipment / Reputation
-- New equipment purchasable with **Reputation Tokens** earned through quests
-- Specific equipment names not documented online
+### Zargon Spells
+Summon Dreadshifter, Conjure Golem, Beseech Dread Powers!, Hammer of Ruin, Leach Life, Scrolls of Morcar
 
 ---
 
@@ -224,64 +278,75 @@
 *36 game cards. Introduces Berserker and Explorer heroes. Jungle setting.*
 
 ### Hero Skill Cards
-**Berserker** — Damage-focused; abilities trigger on missing Body Points or cost BP to use
-**Explorer** — Mobility/scouting; trap detection; navigates unrevealed terrain
+**Berserker:** Frenzy, Enrage, Danger Sense — damage-focused; abilities trigger on missing Body Points or cost BP to use
+**Explorer:** Treasure Hunter, Trapsmith, Revelation — mobility/scouting; trap detection; navigates unrevealed terrain
 
-### Animal Companion Cards
-- Ally cards that support player actions (specific companions not documented)
+### Artifacts (5)
+- **Fangwarden Armlet** — Call a Raptor animal ally once per quest. If Raptor defeated, power goes dormant for 2 quests.
+- **Girdle of Might** — +1 attack die on all non-ranged weapon attacks. Not usable by Wizard.
+- **Emberwrought Diadem** — Ancient circlet with fiery red gem. Raises max BP by 1 + grants +1 defend die. Cannot combine with helmet.
+- **Bracers of the Wild** — +1 defend die. Move unaffected through furniture/hindering terrain. Add 2 squares to movement roll. Combines with helmet/shield.
+- **The Sapphire Skull** — Cobalt gemstone skull. Roll 2 attack dice against any monster in line of sight (ranged attack).
 
-### Game Cards
-*Specific item names not documented in accessible sources.*
+### Jungle Potions
+- **Potion of Elder Wisdom** (400g) — Recover 1 hero spell + 1 lost MP. One per quest.
+- **Spiderstep Elixir** (100g) — Move unaffected through spider/web/insect/hindering terrain.
+- **Potion of Serpent's Blood** (50g) — Remove paralysis from venomous creatures.
+
+### Treasure Cards
+- **Ancient Dwarven Relic** — Treasure find
+- **Emerald Heart of Delthrak** — Quest objective McGuffin
 
 ---
 
 ## CRYPT OF PERPETUAL DARKNESS (2025 — Joe Manganiello)
 
-*20 holographic foil game cards. 10 epic quests.*
+*20 holographic foil game cards. 10 epic quests. Dark fantasy aesthetic.*
 
-### Documented Items
-- **Acid Breath** — Acid damage variant of Firestorm spell (used by Venim, the acid dragon)
-- **Oil of Acid Immunity** — One-use potion granting acid immunity (final quest only)
-- **The Helpful Mouse** — Artifact; once per quest, look at one room's contents before entering
+### Artifacts
+- **Urdyn the Unmaker** — Hammer. 2 attack dice base, 4 attack dice vs magical constructs (Dreadshifter, Golem).
+- **Drakehide Cuirass** — Non-metal armor. +1 defend die. Move up to 8 squares instead of rolling. Combines with helmet/shield. Not usable by Wizard.
+- **The Helpful Mouse** — Once per quest, look at one room's contents before entering
+- **Oil of Acid Immunity** — One-use potion granting acid immunity
 
-### Other Cards
-*Detailed item list not yet publicly documented; cards have heavy metal/dark fantasy aesthetic with foil treatment.*
+### Misc Treasure / Artifact Cards
+- **Downshield** — Shield-related ability card
+- **The Cloak of Shadows** — Stealth artifact
+- **The Scales of Elethorn** — Named artifact (Elf-themed)
+- **Raven's Talon** — Named weapon artifact
+- **Phoenix Ash** — Resurrection/healing consumable
+
+### Zargon Spells
+Blinding Sleet, Earthquake, Hurricane, Thieving Wind, Wall of Ice, Lightning Strike, Unlearn, Escape, Possess, Rust, Strands of Binding, Wall of Flame
 
 ---
 
 ## HERO COLLECTION: COMMANDER OF THE GUARDIAN KNIGHTS (2021)
 
-*12 game cards. Introduces Knight hero. Re-released in Rise of the Dread Moon (2024).*
+*12 game cards. Introduces Knight hero.*
 
-### Card Breakdown
-- 2 Character cards (male and female Knight variants)
-- 4 Equipment cards
-- 6 Knight skill cards
+### Knight Abilities
+- **Healing Hands** — Restore HP to adjacent ally
+- **Weapon Expert** — Weapon-based combat bonus
+- **Deadeye** — Accuracy / ranged combat bonus
 
-### Knight Stats (from rulebook)
-- Heavy armor focus, party protection abilities
-
-### Specific Card Names
-*Not documented in publicly accessible sources.*
+### Equipment
+- 4 Equipment cards (specific names vary; Knight-themed heavy gear)
 
 ---
 
 ## HERO COLLECTION: ROGUE HEIR OF ELETHORN (2022)
 
-*12 cards. Introduces Rogue hero (Elf background).*
+*12 cards. Introduces Rogue hero (Elf background). 1 Atk / 2 Def / 5 BP / 4 MP.*
 
-### Rogue Stats
-- 1 attack die / 2 defense dice (base) / 5 Body Points / 4 Mind Points
-- Cannot wear heavy armor
+### Rogue Skill Cards
+- **Combat Mobility** — Move through monster-occupied squares unseen
+- **Ambidextrous** — Dual-wield: extra dagger attack
+- **Opportunistic Striker** — +1 attack die when adjacent to another hero
 
-### Documented Cards
-- **Combat Mobility** — Skill: extra movement after attack
-- **Ambidextrous** — Skill: dual-wield weapons; second weapon adds 1 attack die
-- **Dagger** — Equipment: 1 attack die, can be thrown
-- **Bandolier** — Equipment: hold extra throwing daggers/potions
-
-### Stackable Skills Mechanic
-- Rogue skill cards combine for compounding effects (e.g., Combat Mobility + Ambidextrous + Dagger throws)
+### Equipment
+- **Dagger** — 1 attack die, can be thrown
+- **Bandolier** — Hold extra throwing daggers/potions
 
 ---
 
@@ -289,41 +354,106 @@
 
 *7 game cards. Introduces Monk hero.*
 
-### Card Breakdown
-- Character cards (male and female Monk variants)
-- 4 double-sided Elemental Style cards (each side a distinct combat technique)
-
-### Elements
+### Elemental Style Cards (4 double-sided)
 - **Wind** — Mobility-focused techniques
 - **Earth** — Defensive techniques (extra defense dice)
 - **Water** — Healing/restoration techniques
 - **Fire** — Offensive techniques (extra attack dice)
 
 ### Equipment Restrictions
-- **Cannot use:** Metal armor, shields
-- **Can wield:** Daggers, crossbows, hand axes, short swords, staves
+Cannot use: Metal armor, shields. Can wield: Daggers, crossbows, hand axes, short swords, staves.
+
+---
+
+## CONSOLIDATED POTIONS CATALOG
+
+All known potions across all official expansions, organized by availability.
+
+### Armory / Shop Potions
+| Potion | Cost | Effect | Source |
+|--------|------|--------|--------|
+| Potion of Healing | 500g | Roll 1 red die, restore that many BP | Base / Modern |
+| Potion of Lesser Healing | 200g | Restore up to 2 BP | Modern |
+| Potion of Restoration | 300g | Restore 1 lost BP and 1 lost MP | Kellar's Keep+ |
+| Potion of Superior Restoration | 800g | Restore 1 BP + 1 MP; may cure werewolf curse | Mage of Mirror |
+| Potion of Battle | 200g | Reroll all attack dice once | Kellar's Keep+ |
+| Potion of Strength | varies | +2 attack dice to next attack | Base Game |
+| Potion of Defense | 200g | +2 defend dice for one defense roll | Base Game |
+| Potion of Speed | 500g | Move 12 squares this turn; may pass through monsters. Suffer 1 BP after. | Mage of Mirror |
+| Potion of Dexterity | 100g | +6 movement squares OR auto pit jump | Kellar's Keep+ |
+| Potion of Magic | 400g | Recover up to 3 spells cast this quest | Modern |
+| Venom Antidote | 300g | Restores up to 2 BP if poisoned | Kellar's Keep+ |
+| Holy Water | varies | Anti-undead consumable. Roll 2 dice vs adjacent Undead, skulls = damage, no defend. | Base Game |
+
+### Treasure Deck Potions
+| Potion | Effect | Source |
+|--------|--------|--------|
+| Heroic Brew | Roll 2 additional combat dice on next attack | Base Game |
+| Potion of Healing (treasure) | Restore up to 4 BP | Base Game |
+| Potion of Strength (treasure) | +2 attack dice to next attack | Base Game |
+| Potion of Defense (treasure) | +2 defend dice for one defense roll | Base Game |
+| Potion of Speed (treasure) | Roll 2 additional movement dice | Base Game |
+| Potion of Resilience | Prevents next 1 BP of damage | Base / Expansions |
+| Potion of Fire Resistance | Negates fire-based damage for one quest | Modern |
+| Potion of Charm | Social/persuasion effect | Modern |
+| Potion of Magical Aptitude | Spell-related bonus | Modern |
+| Potion of Magic Resistance | Ignores effect of any 1 spell | Modern |
+| Wolfsbane Potion | +2 attack dice vs wolves and werewolves | Mage of Mirror |
+
+### Hero-Restricted Potions
+| Potion | Cost | Effect | Restriction |
+|--------|------|--------|-------------|
+| Potion of Icy Strength | 200g | After next attack, 2× skull damage | Barbarian only |
+| Potion of Rejuvenation | 500g | Restore up to 6 lost BP (roll 1 red die) | Barbarian only |
+| Potion of Frost Skin | 300g | +1 defend die when no monster in LoS | Barbarian only |
+| Potion of Battle Rage | 400g | Attack dice ignore enemy defend | Barbarian only |
+| Potion of Vision | 500g | See all secret doors/traps within 4 squares | Elf only |
+| Potion of Recall | 400g | Recover one spell cast this quest | Elf only |
+| Potion of Elder Wisdom | 400g | Recover 1 spell + 1 MP. One per quest. | Druid-themed |
+| Spiderstep Elixir | 100g | Pass through spider/web/hindering terrain | Jungle |
+| Potion of Serpent's Blood | 50g | Remove venomous paralysis | Jungle |
+
+### Crafted / Alchemy Potions (Rise of the Dread Moon system)
+Craftable via Reagent Kit + ingredients: Battle, Magic Resistance, Magic, Ogre Grog, Icy Strength, Unforeseen Fate, Lesser Healing, Speed, Superior Restoration, Celerity, Vision, Strength, Battle Rage, Healing, Restoration, Heroic Brew, Frost Skin, Recall, Defense, Dexterity
+
+---
+
+## SPELL SCHOOL CATEGORIES (all hero spell schools identified)
+
+**Elemental (base game):** Air, Water, Fire, Earth (3 spells each)
+**Cold (Frozen Horror):** Soothe, Mind Freeze, Ice Storm, Skate, Ice Wall, Chill
+**Wizard Extended (Wizards of Morcar):** Timestop, Twist Wood, Slow, Hypnotic Blaze, Flashback, Double Image, Disappear, Deep Sleep
+**Warlock (Prophecy of Telor):** Demonform, Shapeshift, Arrows of the Night, Clairvoyance, Unseen, Chains of Darkness, Future Sight, Invisibility, Cloak of Shadows, Treasure Horde, Wall of Stone
+**Bard (Spirit Queen's Torment):** Lullaby, Healing Song, Inspiring Tale, Dark Wings, Lifeforce, Pixie, Fear
+**Druid (Against the Ogre Horde):** Creeping Grasp + shapeshift/nature spells
+
+**Spell school categories documented:** Storm Master, High Mage, Spells of Darkness, Boon of Aerelium, Necromancer, Spells of Detection, Warcaster, Spells of Protection, Artificer
 
 ---
 
 ## NAMING CONVENTIONS OBSERVED ACROSS ALL OFFICIAL ITEMS
 
 **Common patterns:**
-- "[Adjective] [Object]" — e.g., Magical Throwing Dagger, Spirit Blade, Elven Boots
-- "[Object] of [Effect/Name]" — e.g., Cloak of Protection, Wand of Magic, Ring of Return, Elven Bow of Vindication
-- "[Person]'s [Object]" — e.g., Borin's Armor, Orc's Bane, Wizard's Cloak, Wizard's Staff
-- "[Material] [Object]" — e.g., Chain Mail, Plate Mail, Bone Wand, Stone Skin
-- Spell scrolls always begin "Spell Scroll: [Spell Name]"
+- "[Adjective] [Object]" — Magical Throwing Dagger, Spirit Blade, Elven Boots, Phantom Blade
+- "[Object] of [Effect/Name]" — Cloak of Protection, Wand of Magic, Ring of Return, Potion of Healing, Elven Bow of Vindication, Dust of Disappearance
+- "[Person/Place]'s [Object]" — Borin's Armor, Orc's Bane, Wizard's Cloak, Spertano's Longsword
+- "[Material] [Object]" — Chain Mail, Plate Mail, Bone Wand, Drakehide Cuirass
+- Named weapons/artifacts — Urdyn the Unmaker, The Sapphire Skull, Emberwrought Diadem, Fangwarden Armlet, Phoenix Ash, Raven's Talon
+- Spell scrolls: "Spell Scroll: [Spell Name]"
 
 **Power calibration anchors:**
-- Common weapon: 1-2 attack dice (Dagger, Short Sword, Hand Axe)
-- Standard weapon: 3 attack dice (Broadsword, Crossbow, Spirit Blade)
-- Powerful weapon: 4 attack dice, two-handed (Battle Axe, Ogre Champion's Maul)
-- Standard armor: 1-2 defense dice (Helmet, Bracers, Shield, Chain Mail)
-- Heavy armor: 3 defense dice (Plate Mail, Borin's Armor)
-- Mythic/artifact armor: 4-5 defense dice (Wizard's Cloak grants total of 4 dice for Wizard)
+- Common weapon: 1-2 attack dice (Dagger, Shortsword, Handaxe, Staff)
+- Standard weapon: 3 attack dice (Broadsword, Longsword, Crossbow)
+- Powerful weapon: 4 attack dice (Battle Axe, Orc's Bane — two-handed or artifact)
+- Artifact weapon: 3-5 attack dice (Spirit Blade 3/5, Elven Bow of Vindication 3+1)
+- Legendary weapon: 4-6 attack dice (Urdyn the Unmaker 2/4 conditional)
+- Standard armor: +1 defense die (Helmet, Shield, Bracers)
+- Heavy armor: +2-3 defense dice (Chain Mail +2, Plate Mail +3, Borin's Armor +3 no penalty)
+- Artifact armor: conditional bonuses (Drakehide Cuirass +1 def + 8 move, Emberwrought Diadem +1 def + 1 BP)
 
 **Effect text style:**
-- Conditional bonuses ("+1 attack die when fighting Orcs", "+2 dice vs wolves and werewolves")
-- Once-per-quest abilities ("Once per quest, restore 2 Body Points")
-- Trade-offs ("Roll 5 defense dice but cannot move and attack same turn")
-- Triggered effects ("On a white shield, evade the trap")
+- Conditional bonuses: "+2 attack dice against Undead", "+1 die vs Chaos creatures", "2× skull damage"
+- Once-per-quest abilities: "Once per quest, restore 2 Body Points", "See contents of one unrevealed room"
+- Trade-offs: "+3 defense dice but movement reduced to 1 red die", "Suffer 1 BP after"
+- Triggered effects: "On white shield, evade the trap", "If Raptor defeated, power goes dormant for 2 quests"
+- Hero restrictions: "Not usable by Wizard", "Barbarian only", "Elf only"
