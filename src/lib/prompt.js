@@ -48,18 +48,12 @@ Report dice as plain integers:
 - attackDice: number of combat dice to roll for attack (0 if item has no attack)
 - defenseDice: number of combat dice to roll for defense (0 if item has no defense bonus)
 
-Power scale by tier:
-- T4 (common): attackDice 1-2, defenseDice 0-1
-- T3 (uncommon): attackDice 2-3, defenseDice 1-2
-- T2 (rare): attackDice 3-4, defenseDice 2-3
-- T1 (legendary): attackDice 4-6, defenseDice 3-4
-
 ## OFFICIAL ITEM CATALOG REFERENCE
 A comprehensive catalog of real official HeroQuest items (base game + all expansions) is provided at the END of this prompt. Use it to:
-- Calibrate power levels by tier (a 4-attack-die weapon is rare and usually two-handed; 1-die items are starter gear)
+- Calibrate power by item type and item kind (Battle Axe is canon's ceiling for a one-handed weapon at 4 attack dice; Spirit Blade scales higher because it's an Artifact)
 - Match naming conventions (e.g., "Borin's Armor", "Rabbit Boots", "Spell Scroll: [Name]", "Wand of Magic")
 - Match effect text style (conditional bonuses vs specific creatures, once-per-quest abilities, trade-offs)
-- Anchor flavor and aesthetic appropriately to the era/expansion implied by the requested tier or slot
+- Anchor flavor and aesthetic appropriately to the era/expansion implied by the requested item type or slot
 
 DO NOT reproduce any catalog item exactly. Use the catalog as your reference for how official cards read, then generate a NEW original item that fits the same world.
 
@@ -89,35 +83,47 @@ Quest pack heroes:
 NOTE — "Knight Captain" is NOT an official hero name. The correct name is "Knight" or "Commander of the Guardian Knights."
 - Any: usable by all heroes
 
-## TIER DEFINITIONS
+## ITEM TYPE DEFINITIONS
 
-**Tier 4 — Treasure Card** (common, found in most rooms)
-- Simple items, minor effect, fits in a pocket or pouch
-- attackDice 1-2, defenseDice 0-1
-- Effects: straightforward — heal a few BP, add 1 attack die, add 1 defense die, small movement bonus, draw another treasure card
-- Flavor: simple and earthy, feels like something a dungeon runner would actually carry
-- Hero restriction: almost always "Any"
+Items in HeroQuest fall into five canonical types. Power and tone follow from the type, not from a numbered tier. (HeroQuest does NOT use a tier system in canon — items are categorized by what they are and where they come from.)
 
-**Tier 3 — Enchanted Item** (uncommon, quest reward or special room)
-- Named, crafted items with a clear purpose
-- attackDice 2-3, defenseDice 1-2
-- Effects: meaningful — conditional bonuses, situational power, usable once per quest ability
-- Flavor: the item has a maker, a history, a name someone gave it
-- Hero restriction: sometimes restricted by weapon type or physical build
+**Treasure Card** — drawn from the treasure deck during room searches
+- Modest, situational items. Often consumable or single-shot.
+- attackDice 0-1, defenseDice 0-1
+- Effects: small one-time bonuses (heal a few BP, +1 attack die for one attack, find extra gold, reveal a trap)
+- Flavor: earthy and found-in-the-dungeon — a flask, a coin, a charm, a torn page
+- Hero restriction: almost always Any
+- Examples (canon style): pouches, charms, lucky tokens, minor curiosities
 
-**Tier 2 — Ancient Relic** (rare, boss room or Zargon's hoard)
-- Named artifacts from HeroQuest's lore — old wars, dead kingdoms, forgotten magic
-- attackDice 3-4, defenseDice 2-3
-- Effects: powerful — ignores a defense type, grants a new capability, stacks with other gear
-- Flavor: clearly storied, this item has changed hands across generations
-- Hero restriction: usually restricted (heavy relics → fighters; magic relics → Elf/Wizard)
+**Equipment** — armory inventory, purchased between quests
+- Standard adventuring gear: weapons, armor, helmets, shields, boots, tools
+- attackDice 1-4 for weapons (Battle Axe is the canon ceiling for a one-handed weapon at 4); defenseDice 1-3 for armor
+- Effects: straightforward stat bonuses; heavy armor often halves movement; some weapons are two-handed (cannot use a shield while wielded)
+- Flavor: practical, well-made — the kind of gear an armorer sells. Smith's voice, not poet's voice.
+- Hero restriction: by physical capability — heavy armor restricts non-warriors; the Wizard cannot wear armor or use most weapons in canon
+- Canon examples: Short Sword, Battle Axe, Crossbow, Chain Mail, Plate Mail, Helmet, Shield, Tool Kit
 
-**Tier 1 — Legendary Artifact** (ultra-rare, final quest or campaign reward)
-- One-of-a-kind items that tip the balance of a quest
-- attackDice 4-6, defenseDice 3-4
-- Effects: game-changing — extra turns, AoE damage, negating monster abilities, massive defense
-- Flavor: legend-level, something that would appear in the quest's title
-- Hero restriction: almost always restricted to 1-2 heroes
+**Spell Scroll** — single-use spell on a parchment, found in treasure
+- One-shot consumable that casts a specific spell when used and is then discarded
+- attackDice 0, defenseDice 0 (the spell does the work, not the parchment)
+- Effects: a typed spell (Fire / Water / Earth / Air or expansion school) with a clear in-game effect
+- Flavor: brittle parchment, faint glyphs, the words almost forgotten
+- Hero restriction: typically casters (Wizard, Elf, Warlock, Bard, Druid). Some scrolls in canon can be activated by anyone — vary it appropriately.
+
+**Potion** — single-use alchemical consumable
+- One-shot effect when drunk
+- attackDice 0, defenseDice 0 (the potion's effect is its mechanic)
+- Effects: heal Body Points, +2 attack dice for one attack, +2 defense dice for one defense, two attacks this turn (Heroic Brew style), temporary movement boosts, etc.
+- Flavor: short, evocative, brewer's voice — "Tastes of iron and pine," "Goes down warm"
+- Hero restriction: almost always Any
+
+**Artifact** — named, often unique, powerful items found as quest rewards
+- The standout items of HeroQuest. Have a name, a backstory, and a distinctive ability.
+- attackDice up to 6 for legendary weapons; defenseDice up to 4 for legendary armor; often has a special effect on top of dice
+- Effects: conditional bonuses (vs Undead, vs Chaos), once-per-quest abilities, action-economy effects (extra attack, cast two spells), persistent buffs (+1 Mind), terrain mobility, enemy negation
+- Flavor: storied — references named figures, dead kingdoms, lost orders, specific events from HQ lore. This is where the world's history gets named.
+- Hero restriction: often locked to 1-3 heroes by class compatibility (heavy artifacts → fighters; magic artifacts → casters)
+- Canon examples: Borin's Armor, Spirit Blade, Wand of Magic, Talisman of Lore, Orc's Bane, Ring of Return, Wizard's Cloak, Wizard's Staff, Elixir of Life
 
 ## TONE AND NAMING RULES
 - Names: medieval fantasy, specific and evocative — NOT generic. Think like an official Hasbro card name.
@@ -131,7 +137,7 @@ NOTE — "Knight Captain" is NOT an official hero name. The correct name is "Kni
 Respond with ONLY valid JSON, no other text:
 {
   "name": "string",
-  "tier": 1|2|3|4,
+  "itemType": "Treasure Card" | "Equipment" | "Spell Scroll" | "Potion" | "Artifact",
   "slot": "string",
   "attackDice": 0-6,
   "defenseDice": 0-4,
@@ -159,12 +165,11 @@ export const SYSTEM_BLOCKS = [
   },
 ]
 
-export function buildUserPrompt({ tier, slot, hero, expansion, varietySeed, recentNames }) {
+export function buildUserPrompt({ itemType, slot, hero, expansion, varietySeed, recentNames }) {
   const parts = []
 
-  if (tier) {
-    const tierNames = { 1: 'Tier 1 — Legendary Artifact', 2: 'Tier 2 — Ancient Relic', 3: 'Tier 3 — Enchanted Item', 4: 'Tier 4 — Treasure Card' }
-    parts.push(`Tier: ${tierNames[tier] || tier}`)
+  if (itemType) {
+    parts.push(`Item type: ${itemType}. Match the tone, power range, and flavor conventions for this type as defined in the system prompt.`)
   }
 
   if (slot) {
@@ -180,7 +185,7 @@ export function buildUserPrompt({ tier, slot, hero, expansion, varietySeed, rece
   }
 
   let prompt = parts.length === 0
-    ? 'Generate a completely random HeroQuest loot item. Choose tier and slot freely for maximum variety.'
+    ? 'Generate a completely random HeroQuest loot item. Choose item type and slot freely for maximum variety.'
     : `Generate a HeroQuest loot item with these constraints:\n${parts.join('\n')}\n\nFor any unspecified attributes, choose freely and creatively.`
 
   if (varietySeed) {

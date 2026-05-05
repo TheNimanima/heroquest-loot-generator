@@ -1,17 +1,27 @@
 import React from 'react'
 
-const TIER_LABELS = {
-  1: 'Legendary Artifact',
-  2: 'Ancient Relic',
-  3: 'Enchanted Item',
-  4: 'Treasure Card',
+const TYPE_LABELS = {
+  'Treasure Card': 'Treasure Card',
+  'Equipment': 'Equipment',
+  'Spell Scroll': 'Spell Scroll',
+  'Potion': 'Potion',
+  'Artifact': 'Artifact',
 }
 
-const TIER_COLORS = {
-  1: { border: '#ff6b00', glow: 'rgba(255,107,0,0.5)', badge: '#ff6b00', header: '#2a0800' },
-  2: { border: '#9b59b6', glow: 'rgba(155,89,182,0.5)', badge: '#9b59b6', header: '#1a0a2a' },
-  3: { border: '#3498db', glow: 'rgba(52,152,219,0.4)', badge: '#3498db', header: '#0a1a2a' },
-  4: { border: '#8a7a5a', glow: 'rgba(138,122,90,0.3)', badge: '#7f8c8d', header: '#2a200a' },
+const TYPE_COLORS = {
+  'Artifact': { border: '#ff6b00', glow: 'rgba(255,107,0,0.5)', badge: '#ff6b00', header: '#2a0800' },
+  'Spell Scroll': { border: '#9b59b6', glow: 'rgba(155,89,182,0.5)', badge: '#9b59b6', header: '#1a0a2a' },
+  'Equipment': { border: '#3498db', glow: 'rgba(52,152,219,0.4)', badge: '#3498db', header: '#0a1a2a' },
+  'Potion': { border: '#2ecc71', glow: 'rgba(46,204,113,0.4)', badge: '#2ecc71', header: '#0a2a14' },
+  'Treasure Card': { border: '#8a7a5a', glow: 'rgba(138,122,90,0.3)', badge: '#7f8c8d', header: '#2a200a' },
+}
+
+const TYPE_BADGES = {
+  'Treasure Card': 'TRS',
+  'Equipment': 'EQP',
+  'Spell Scroll': 'SCR',
+  'Potion': 'POT',
+  'Artifact': 'ART',
 }
 
 // Renders individual skull/shield dice pips (all HeroQuest combat dice are identical)
@@ -59,8 +69,8 @@ function DiceRow({ count, label, icon, symbol }) {
 export default function ItemCard({ item, style: extraStyle }) {
   if (!item) return null
 
-  const { name, tier, slot, attackDice, defenseDice, effect, flavorText, heroRestriction } = item
-  const colors = TIER_COLORS[tier] || TIER_COLORS[4]
+  const { name, itemType, slot, attackDice, defenseDice, effect, flavorText, heroRestriction } = item
+  const colors = TYPE_COLORS[itemType] || TYPE_COLORS['Treasure Card']
 
   return (
     <div
@@ -102,7 +112,7 @@ export default function ItemCard({ item, style: extraStyle }) {
             letterSpacing: '0.05em',
             whiteSpace: 'nowrap',
           }}>
-            T{tier}
+            {TYPE_BADGES[itemType] || itemType}
           </span>
         </div>
         <div style={{ color: '#c9a227', fontSize: 12, marginTop: 3, letterSpacing: '0.05em' }}>
@@ -136,7 +146,7 @@ export default function ItemCard({ item, style: extraStyle }) {
           color: '#c9a22780',
           fontStyle: 'italic',
         }}>
-          {TIER_LABELS[tier]}
+          {TYPE_LABELS[itemType] || itemType}
         </div>
       </div>
 

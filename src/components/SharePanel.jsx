@@ -104,7 +104,7 @@ function PrintLayout({ item }) {
           <p style={{ fontFamily: '"Cinzel", serif', fontSize: 12, color: '#999', margin: '0 0 8px' }}>
             BACK — FOLD AND GLUE OR SLEEVE
           </p>
-          <CardBack tier={item.tier} />
+          <CardBack itemType={item.itemType} />
         </div>
       </div>
     </div>
@@ -112,14 +112,13 @@ function PrintLayout({ item }) {
 }
 
 function formatShareText(item) {
-  const tierName = { 1: 'Legendary Artifact', 2: 'Ancient Relic', 3: 'Enchanted Item', 4: 'Treasure Card' }[item.tier] || `Tier ${item.tier}`
   const atk = item.attackDice > 0 ? `Attack: ${item.attackDice} combat dice | ` : ''
   const def = item.defenseDice > 0 ? `Defense: ${item.defenseDice} combat dice | ` : ''
   const restrict = item.heroRestriction === 'Any' ? 'All Heroes' : `${item.heroRestriction} Only`
 
   return [
     `⚔ ${item.name}`,
-    `${tierName} — ${item.slot}`,
+    `${item.itemType} — ${item.slot}`,
     '',
     `${atk}${def}${restrict}`,
     '',

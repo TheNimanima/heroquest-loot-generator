@@ -1,7 +1,6 @@
 import React from 'react'
 
 // Placeholder card backs until Nima provides real HeroQuest card back images.
-// tier 1-2 → Artifact back (dark/ornate); tier 3-4 → Treasure back (brown/parchment)
 
 const TREASURE_BACK_PATTERN = `
   repeating-linear-gradient(
@@ -31,8 +30,8 @@ const ARTIFACT_BACK_PATTERN = `
   linear-gradient(160deg, #2a0a40 0%, #0a0020 100%)
 `
 
-export default function CardBack({ tier, style: extraStyle }) {
-  const isArtifact = tier <= 2
+export default function CardBack({ itemType, style: extraStyle }) {
+  const isArtifact = itemType === 'Artifact'
   const borderColor = isArtifact ? '#9b59b6' : '#c9a227'
   const pattern = isArtifact ? ARTIFACT_BACK_PATTERN : TREASURE_BACK_PATTERN
   const label = isArtifact ? 'ARTIFACT' : 'TREASURE'

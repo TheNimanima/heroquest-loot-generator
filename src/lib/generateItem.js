@@ -38,10 +38,10 @@ export function clearRecentNames() {
   try { localStorage.removeItem(RECENT_KEY) } catch {}
 }
 
-export async function generateItem({ tier, slot, hero, expansion }) {
+export async function generateItem({ itemType, slot, hero, expansion }) {
   const varietySeed = generateVarietySeed()
   const recentNames = getRecentNames()
-  const userPrompt = buildUserPrompt({ tier, slot, hero, expansion, varietySeed, recentNames })
+  const userPrompt = buildUserPrompt({ itemType, slot, hero, expansion, varietySeed, recentNames })
 
   const item = WORKER_URL
     ? await callWorker(userPrompt)
@@ -121,7 +121,7 @@ function parseItem(raw) {
   const item = JSON.parse(cleaned)
 
   // Validate required fields
-  const required = ['name', 'tier', 'slot', 'effect', 'flavorText', 'heroRestriction']
+  const required = ['name', 'itemType', 'slot', 'effect', 'flavorText', 'heroRestriction']
   for (const field of required) {
     if (item[field] === undefined || item[field] === null) {
       throw new Error(`Missing field: ${field}`)
@@ -130,7 +130,7 @@ function parseItem(raw) {
 
   return {
     name: String(item.name),
-    tier: Number(item.tier),
+    itemType: String(item.itemType),
     slot: String(item.slot),
     attackDice: Number(item.attackDice) || 0,
     defenseDice: Number(item.defenseDice) || 0,

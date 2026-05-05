@@ -57,7 +57,7 @@ export default function BuilderControls({ item, onDiscard, onRegenerate, isLoadi
       const payload = {
         id,
         name: item.name,
-        tier: item.tier,
+        itemType: item.itemType,
         slot: item.slot,
         attackDice: item.attackDice,
         defenseDice: item.defenseDice,

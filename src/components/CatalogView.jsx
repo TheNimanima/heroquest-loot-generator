@@ -78,12 +78,13 @@ function EditForm({ item, onSave, onCancel, isSaving }) {
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: 10, ...fieldGap }}>
         <div>
-          <label style={labelStyle}>Tier</label>
-          <select value={draft.tier} onChange={updateNum('tier')} style={{ ...inputStyle, width: '100%' }}>
-            <option value={1}>T1 — Legendary</option>
-            <option value={2}>T2 — Ancient</option>
-            <option value={3}>T3 — Enchanted</option>
-            <option value={4}>T4 — Treasure</option>
+          <label style={labelStyle}>Item Type</label>
+          <select value={draft.itemType || ''} onChange={update('itemType')} style={{ ...inputStyle, width: '100%' }}>
+            <option value="Treasure Card">Treasure Card</option>
+            <option value="Equipment">Equipment</option>
+            <option value="Spell Scroll">Spell Scroll</option>
+            <option value="Potion">Potion</option>
+            <option value="Artifact">Artifact</option>
           </select>
         </div>
         <div>
@@ -193,7 +194,7 @@ function CatalogRow({ item, onUpdated, onDeleted }) {
           fontSize: 10, fontWeight: 700, color: '#c9a227',
           border: '1px solid #c9a227', borderRadius: 3,
           padding: '1px 6px', minWidth: 26, textAlign: 'center',
-        }}>T{item.tier}</span>
+        }}>{item.itemType || '?'}</span>
         <div style={{ flex: 1, minWidth: 0 }}>
           <div style={{
             fontFamily: '"Cinzel", Georgia, serif',
@@ -263,7 +264,7 @@ function CatalogRow({ item, onUpdated, onDeleted }) {
 
 export default function CatalogView() {
   const [items, setItems] = useState(() => loadCatalog())
-  const [tier, setTier] = useState('')
+  const [itemType, setItemType] = useState('')
   const [slot, setSlot] = useState('')
   const [hero, setHero] = useState('')
   const [search, setSearch] = useState('')
@@ -271,7 +272,7 @@ export default function CatalogView() {
   const filtered = useMemo(() => {
     const s = search.trim().toLowerCase()
     return items
-      .filter(i => !tier || Number(i.tier) === Number(tier))
+      .filter(i => !itemType || i.itemType === itemType)
       .filter(i => !slot || i.slot === slot)
       .filter(i => {
         if (!hero) return true
@@ -280,7 +281,7 @@ export default function CatalogView() {
       })
       .filter(i => !s || i.name.toLowerCase().includes(s) || (i.effect || '').toLowerCase().includes(s))
       .sort((a, b) => (b.createdAt || '').localeCompare(a.createdAt || ''))
-  }, [items, tier, slot, hero, search])
+  }, [items, itemType, slot, hero, search])
 
   const handleUpdated = (updated) => {
     setItems(prev => prev.map(i => i.id === updated.id ? { ...i, ...updated } : i))
@@ -300,12 +301,13 @@ export default function CatalogView() {
         border: '1px solid #3d1c02',
         borderRadius: 8,
       }}>
-        <select value={tier} onChange={e => setTier(e.target.value)} style={inputStyle}>
-          <option value="">All Tiers</option>
-          <option value={1}>T1 — Legendary</option>
-          <option value={2}>T2 — Ancient</option>
-          <option value={3}>T3 — Enchanted</option>
-          <option value={4}>T4 — Treasure</option>
+        <select value={itemType} onChange={e => setItemType(e.target.value)} style={inputStyle}>
+          <option value="">All Types</option>
+          <option value="Treasure Card">Treasure Card</option>
+          <option value="Equipment">Equipment</option>
+          <option value="Spell Scroll">Spell Scroll</option>
+          <option value="Potion">Potion</option>
+          <option value="Artifact">Artifact</option>
         </select>
         <select value={slot} onChange={e => setSlot(e.target.value)} style={inputStyle}>
           <option value="">All Slots</option>

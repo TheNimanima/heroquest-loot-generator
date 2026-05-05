@@ -1,11 +1,12 @@
 import React from 'react'
 
-const TIERS = [
-  { value: '', label: 'Any Tier' },
-  { value: 1, label: 'T1 — Legendary Artifact' },
-  { value: 2, label: 'T2 — Ancient Relic' },
-  { value: 3, label: 'T3 — Enchanted Item' },
-  { value: 4, label: 'T4 — Treasure Card' },
+const ITEM_TYPES = [
+  { value: '', label: 'Any Type' },
+  { value: 'Treasure Card', label: 'Treasure Card' },
+  { value: 'Equipment', label: 'Equipment' },
+  { value: 'Spell Scroll', label: 'Spell Scroll' },
+  { value: 'Potion', label: 'Potion' },
+  { value: 'Artifact', label: 'Artifact' },
 ]
 
 const SLOTS = [
@@ -90,7 +91,7 @@ const labelStyle = {
   textTransform: 'uppercase',
 }
 
-export default function SelectionPanel({ tier, slot, hero, expansion, onTierChange, onSlotChange, onHeroChange, onExpansionChange, onGenerate, isLoading, buttonLabel }) {
+export default function SelectionPanel({ itemType, slot, hero, expansion, onItemTypeChange, onSlotChange, onHeroChange, onExpansionChange, onGenerate, isLoading, buttonLabel }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     onGenerate()
@@ -100,15 +101,15 @@ export default function SelectionPanel({ tier, slot, hero, expansion, onTierChan
     <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: 340 }}>
       <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
-        {/* Tier selector */}
+        {/* Item Type selector */}
         <div>
-          <label style={labelStyle}>Tier</label>
+          <label style={labelStyle}>Item Type</label>
           <select
-            value={tier}
-            onChange={e => onTierChange(e.target.value ? Number(e.target.value) : '')}
+            value={itemType}
+            onChange={e => onItemTypeChange(e.target.value)}
             style={selectStyle}
           >
-            {TIERS.map(t => (
+            {ITEM_TYPES.map(t => (
               <option key={t.value} value={t.value}>{t.label}</option>
             ))}
           </select>
@@ -174,7 +175,7 @@ export default function SelectionPanel({ tier, slot, hero, expansion, onTierChan
           margin: '0 0 4px',
           lineHeight: 1.4,
         }}>
-          {(!tier && !slot && !hero && !expansion)
+          {(!itemType && !slot && !hero && !expansion)
             ? 'Leave all blank for a fully random loot drop.'
             : 'Unset fields will be chosen freely by the generator.'}
         </p>

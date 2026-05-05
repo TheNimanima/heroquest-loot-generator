@@ -16,7 +16,7 @@ function isBuilderMode() {
 }
 
 export default function App() {
-  const [tier, setTier] = useState('')
+  const [itemType, setItemType] = useState('')
   const [slot, setSlot] = useState('')
   const [hero, setHero] = useState('')
   const [expansion, setExpansion] = useState('')
@@ -29,7 +29,7 @@ export default function App() {
   const catalogSize = useMemo(() => loadCatalog().length, [item, view])
 
   const filters = {
-    tier: tier !== '' ? Number(tier) : null,
+    itemType: itemType !== '' ? itemType : null,
     slot: slot !== '' ? slot : null,
     hero: hero !== '' ? hero : null,
     expansion: expansion !== '' ? expansion : null,
@@ -158,11 +158,11 @@ export default function App() {
         {/* Selection panel */}
         <section className="no-print" style={{ width: '100%', display: 'flex', justifyContent: 'center' }}>
           <SelectionPanel
-            tier={tier}
+            itemType={itemType}
             slot={slot}
             hero={hero}
             expansion={expansion}
-            onTierChange={setTier}
+            onItemTypeChange={setItemType}
             onSlotChange={setSlot}
             onHeroChange={setHero}
             onExpansionChange={setExpansion}
@@ -233,7 +233,7 @@ export default function App() {
                   }}>
                     Card Back
                   </p>
-                  <CardBack tier={item.tier} />
+                  <CardBack itemType={item.itemType} />
                 </div>
               )}
             </div>

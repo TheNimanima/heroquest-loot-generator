@@ -15,9 +15,9 @@ export function loadCatalog() {
   return buildIndex()
 }
 
-export function filterCatalog({ tier, slot, hero, expansion } = {}) {
+export function filterCatalog({ itemType, slot, hero, expansion } = {}) {
   return loadCatalog().filter(item => {
-    if (tier && Number(item.tier) !== Number(tier)) return false
+    if (itemType && item.itemType !== itemType) return false
     if (slot && item.slot !== slot) return false
     if (hero && hero !== 'Any') {
       const restriction = String(item.heroRestriction || '').toLowerCase()

@@ -1,7 +1,7 @@
 {
   "id": "silvered-chains-of-vael-c34iry",
   "name": "Silvered Chains of Vael",
-  "tier": 3,
+  "itemType": "Artifact",
   "slot": "Armor",
   "attackDice": 0,
   "defenseDice": 2,
