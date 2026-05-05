@@ -2,7 +2,7 @@ import React, { useState, useMemo } from 'react'
 import ItemCard from './ItemCard'
 import { loadCatalog, saveItem, deleteItem } from '../lib/catalog'
 
-const SLOTS = ['Weapon', 'Helmet', 'Armor', 'Shield', 'Boots', 'Ring', 'Amulet', 'Spell Scroll', 'Potion', 'Artifact']
+const SLOTS = ['Weapon', 'Helmet', 'Armor', 'Shield', 'Boots', 'Ring', 'Amulet']
 const HEROES = ['Barbarian', 'Dwarf', 'Elf', 'Wizard', 'Knight', 'Rogue', 'Monk', 'Warlock', 'Bard', 'Druid', 'Berserker', 'Explorer']
 const EXPANSIONS = [
   'Base Game',
@@ -70,7 +70,8 @@ function EditForm({ item, onSave, onCancel, isSaving }) {
         </div>
         <div>
           <label style={labelStyle}>Slot</label>
-          <select value={draft.slot} onChange={update('slot')} style={{ ...inputStyle, width: '100%' }}>
+          <select value={draft.slot || ''} onChange={update('slot')} style={{ ...inputStyle, width: '100%' }}>
+            <option value="">— None (consumable) —</option>
             {SLOTS.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
         </div>
@@ -157,6 +158,7 @@ function CatalogRow({ item, onUpdated, onDeleted }) {
       const payload = {
         ...item,
         ...draft,
+        slot: draft.slot || null,
         updatedAt: new Date().toISOString(),
       }
       await saveItem(payload)
@@ -204,7 +206,7 @@ function CatalogRow({ item, onUpdated, onDeleted }) {
             {item.name}
           </div>
           <div style={{ fontSize: 11, color: '#7a5a2a', marginTop: 2 }}>
-            {item.slot} · {heroes}{themes ? ` · ${themes}` : ''}
+            {item.slot || item.itemType} · {heroes}{themes ? ` · ${themes}` : ''}
           </div>
         </div>
         <button style={btn('edit')} onClick={(e) => { e.stopPropagation(); setExpanded(true); setEditing(true) }} disabled={busy}>Edit</button>
@@ -273,7 +275,7 @@ export default function CatalogView() {
     const s = search.trim().toLowerCase()
     return items
       .filter(i => !itemType || i.itemType === itemType)
-      .filter(i => !slot || i.slot === slot)
+      .filter(i => !slot || (slot === '_none' ? !i.slot : i.slot === slot))
       .filter(i => {
         if (!hero) return true
         const r = String(i.heroRestriction || '').toLowerCase()
@@ -312,6 +314,7 @@ export default function CatalogView() {
         <select value={slot} onChange={e => setSlot(e.target.value)} style={inputStyle}>
           <option value="">All Slots</option>
           {SLOTS.map(s => <option key={s} value={s}>{s}</option>)}
+          <option value="_none">No Slot (consumables)</option>
         </select>
         <select value={hero} onChange={e => setHero(e.target.value)} style={inputStyle}>
           <option value="">All Heroes</option>

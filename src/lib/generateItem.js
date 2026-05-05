@@ -120,8 +120,8 @@ function parseItem(raw) {
   const cleaned = raw.replace(/^```json\s*/i, '').replace(/^```\s*/i, '').replace(/```\s*$/i, '').trim()
   const item = JSON.parse(cleaned)
 
-  // Validate required fields
-  const required = ['name', 'itemType', 'slot', 'effect', 'flavorText', 'heroRestriction']
+  // Validate required fields (slot is nullable for consumables)
+  const required = ['name', 'itemType', 'effect', 'flavorText', 'heroRestriction']
   for (const field of required) {
     if (item[field] === undefined || item[field] === null) {
       throw new Error(`Missing field: ${field}`)
@@ -131,7 +131,7 @@ function parseItem(raw) {
   return {
     name: String(item.name),
     itemType: String(item.itemType),
-    slot: String(item.slot),
+    slot: item.slot ? String(item.slot) : null,
     attackDice: Number(item.attackDice) || 0,
     defenseDice: Number(item.defenseDice) || 0,
     effect: String(item.effect),

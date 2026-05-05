@@ -115,9 +115,11 @@ export default function ItemCard({ item, style: extraStyle }) {
             {TYPE_BADGES[itemType] || itemType}
           </span>
         </div>
-        <div style={{ color: '#c9a227', fontSize: 12, marginTop: 3, letterSpacing: '0.05em' }}>
-          {slot.toUpperCase()}
-        </div>
+        {slot && (
+          <div style={{ color: '#c9a227', fontSize: 12, marginTop: 3, letterSpacing: '0.05em' }}>
+            {slot.toUpperCase()}
+          </div>
+        )}
       </div>
 
       {/* Card art area placeholder */}
@@ -136,7 +138,7 @@ export default function ItemCard({ item, style: extraStyle }) {
           opacity: 0.3,
           userSelect: 'none',
         }}>
-          {getSlotEmoji(slot)}
+          {getSlotOrTypeEmoji(slot, itemType)}
         </div>
         <div style={{
           position: 'absolute',
@@ -214,11 +216,15 @@ export default function ItemCard({ item, style: extraStyle }) {
   )
 }
 
-function getSlotEmoji(slot) {
-  const map = {
+function getSlotOrTypeEmoji(slot, itemType) {
+  const slotMap = {
     Weapon: '⚔️', Helmet: '⛑️', Armor: '🥋', Shield: '🛡️',
-    Boots: '👢', Ring: '💍', Amulet: '📿', 'Spell Scroll': '📜',
-    Potion: '🧪', Artifact: '✨',
+    Boots: '👢', Ring: '💍', Amulet: '📿',
   }
-  return map[slot] || '✨'
+  if (slot && slotMap[slot]) return slotMap[slot]
+  const typeMap = {
+    'Spell Scroll': '📜', 'Potion': '🧪', 'Artifact': '✨',
+    'Treasure Card': '🎴', 'Equipment': '⚔️',
+  }
+  return typeMap[itemType] || '✨'
 }

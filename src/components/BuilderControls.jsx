@@ -58,7 +58,7 @@ export default function BuilderControls({ item, onDiscard, onRegenerate, isLoadi
         id,
         name: item.name,
         itemType: item.itemType,
-        slot: item.slot,
+        slot: item.slot || null,
         attackDice: item.attackDice,
         defenseDice: item.defenseDice,
         effect: item.effect,

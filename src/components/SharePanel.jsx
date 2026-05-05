@@ -118,7 +118,7 @@ function formatShareText(item) {
 
   return [
     `⚔ ${item.name}`,
-    `${item.itemType} — ${item.slot}`,
+    item.slot ? `${item.itemType} — ${item.slot}` : item.itemType,
     '',
     `${atk}${def}${restrict}`,
     '',

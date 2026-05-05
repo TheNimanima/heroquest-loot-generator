@@ -58,7 +58,11 @@ A comprehensive catalog of real official HeroQuest items (base game + all expans
 DO NOT reproduce any catalog item exactly. Use the catalog as your reference for how official cards read, then generate a NEW original item that fits the same world.
 
 ## ITEM SLOTS
-Valid slots: Weapon, Helmet, Armor, Shield, Boots, Ring, Amulet, Spell Scroll, Potion, Artifact
+Slot is the gear position on the hero. Only items that are equipped have a slot.
+Valid slots: Weapon, Helmet, Armor, Shield, Boots, Ring, Amulet
+- Equipment items MUST have a slot (it's what you buy the item for)
+- Artifacts that are worn or wielded SHOULD have a slot (e.g., Spirit Blade → Weapon, Borin's Armor → Armor, Talisman of Lore → Amulet)
+- Spell Scrolls, Potions, and Treasure Cards are consumables — set slot to null
 
 ## HERO ROSTER (full official list)
 
@@ -138,7 +142,7 @@ Respond with ONLY valid JSON, no other text:
 {
   "name": "string",
   "itemType": "Treasure Card" | "Equipment" | "Spell Scroll" | "Potion" | "Artifact",
-  "slot": "string",
+  "slot": "Weapon" | "Helmet" | "Armor" | "Shield" | "Boots" | "Ring" | "Amulet" | null,
   "attackDice": 0-6,
   "defenseDice": 0-4,
   "effect": "string (board game rules text, 1-2 sentences)",

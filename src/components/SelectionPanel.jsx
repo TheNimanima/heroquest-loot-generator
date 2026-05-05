@@ -18,9 +18,6 @@ const SLOTS = [
   { value: 'Boots', label: 'Boots' },
   { value: 'Ring', label: 'Ring' },
   { value: 'Amulet', label: 'Amulet' },
-  { value: 'Spell Scroll', label: 'Spell Scroll' },
-  { value: 'Potion', label: 'Potion' },
-  { value: 'Artifact', label: 'Artifact' },
 ]
 
 const HEROES = [
