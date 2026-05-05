@@ -4,6 +4,12 @@ import { loadCatalog, saveItem, deleteItem } from '../lib/catalog'
 
 const SLOTS = ['Weapon', 'Helmet', 'Armor', 'Shield', 'Boots', 'Ring', 'Amulet', 'Spell Scroll', 'Potion', 'Artifact']
 const HEROES = ['Barbarian', 'Dwarf', 'Elf', 'Wizard', 'Knight', 'Rogue', 'Monk', 'Warlock', 'Bard', 'Druid', 'Berserker', 'Explorer']
+const EXPANSIONS = [
+  'Base Game',
+  "Kellar's Keep", 'Return of the Witch Lord', 'Against the Ogre Horde', 'Wizards of Morcar',
+  'Prophecy of Telor', "Spirit Queen's Torment", 'Mage of the Mirror', 'Rise of the Dread Moon', 'Jungles of Delthrak', 'Crypt of Perpetual Darkness',
+  'Commander of the Guardian Knights', 'Rogue Heir of Elethorn', 'Path of the Wandering Monk',
+]
 
 const inputStyle = {
   padding: '8px 10px',
@@ -103,6 +109,14 @@ function EditForm({ item, onSave, onCancel, isSaving }) {
       <div style={fieldGap}>
         <label style={labelStyle}>Hero Restriction</label>
         <input value={draft.heroRestriction} onChange={update('heroRestriction')} style={{ ...inputStyle, width: '100%' }} placeholder='Any  OR  Barbarian, Dwarf' />
+      </div>
+
+      <div style={fieldGap}>
+        <label style={labelStyle}>Expansion</label>
+        <select value={draft.expansion || ''} onChange={update('expansion')} style={{ ...inputStyle, width: '100%' }}>
+          <option value="">— None —</option>
+          {EXPANSIONS.map(x => <option key={x} value={x}>{x}</option>)}
+        </select>
       </div>
 
       <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end', marginTop: 4 }}>
@@ -221,6 +235,7 @@ function CatalogRow({ item, onUpdated, onDeleted }) {
                 <div><strong style={{ color: '#c9a227' }}>Created:</strong> {item.createdAt ? new Date(item.createdAt).toLocaleString() : '—'}</div>
                 {item.updatedAt && <div><strong style={{ color: '#c9a227' }}>Updated:</strong> {new Date(item.updatedAt).toLocaleString()}</div>}
                 <div><strong style={{ color: '#c9a227' }}>Model:</strong> {item.model || '—'}</div>
+                <div><strong style={{ color: '#c9a227' }}>Expansion:</strong> {item.expansion || '— (untagged)'}</div>
                 <div><strong style={{ color: '#c9a227' }}>Image:</strong> {item.imageUrl || '— (none yet)'}</div>
                 {item.tags?.themes?.length > 0 && (
                   <div style={{ marginTop: 6 }}>

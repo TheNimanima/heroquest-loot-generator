@@ -159,7 +159,7 @@ export const SYSTEM_BLOCKS = [
   },
 ]
 
-export function buildUserPrompt({ tier, slot, hero, varietySeed, recentNames }) {
+export function buildUserPrompt({ tier, slot, hero, expansion, varietySeed, recentNames }) {
   const parts = []
 
   if (tier) {
@@ -173,6 +173,10 @@ export function buildUserPrompt({ tier, slot, hero, varietySeed, recentNames }) 
 
   if (hero && hero !== 'Any') {
     parts.push(`Target hero: ${hero}. The item must logically fit this hero's role; the heroRestriction field MUST include "${hero}" (alone or in a sensible group).`)
+  }
+
+  if (expansion) {
+    parts.push(`Source expansion: ${expansion}. The item must match the tone, era, themes, monsters, and naming style of this expansion as documented in the catalog at the end of the system prompt.`)
   }
 
   let prompt = parts.length === 0

@@ -19,6 +19,7 @@ export default function App() {
   const [tier, setTier] = useState('')
   const [slot, setSlot] = useState('')
   const [hero, setHero] = useState('')
+  const [expansion, setExpansion] = useState('')
   const [item, setItem] = useState(null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState(null)
@@ -31,6 +32,7 @@ export default function App() {
     tier: tier !== '' ? Number(tier) : null,
     slot: slot !== '' ? slot : null,
     hero: hero !== '' ? hero : null,
+    expansion: expansion !== '' ? expansion : null,
   }
 
   const handleGenerate = async () => {
@@ -159,9 +161,11 @@ export default function App() {
             tier={tier}
             slot={slot}
             hero={hero}
+            expansion={expansion}
             onTierChange={setTier}
             onSlotChange={setSlot}
             onHeroChange={setHero}
+            onExpansionChange={setExpansion}
             onGenerate={handleGenerate}
             isLoading={loading}
             buttonLabel={builderMode ? '⚒ Forge New Item' : '⚔ Draw Loot'}

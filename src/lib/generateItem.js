@@ -38,10 +38,10 @@ export function clearRecentNames() {
   try { localStorage.removeItem(RECENT_KEY) } catch {}
 }
 
-export async function generateItem({ tier, slot, hero }) {
+export async function generateItem({ tier, slot, hero, expansion }) {
   const varietySeed = generateVarietySeed()
   const recentNames = getRecentNames()
-  const userPrompt = buildUserPrompt({ tier, slot, hero, varietySeed, recentNames })
+  const userPrompt = buildUserPrompt({ tier, slot, hero, expansion, varietySeed, recentNames })
 
   const item = WORKER_URL
     ? await callWorker(userPrompt)
@@ -52,6 +52,7 @@ export async function generateItem({ tier, slot, hero }) {
   if (item?.name) {
     pushRecentName(item.name)
     item._seed = varietySeed
+    if (expansion) item._expansion = expansion
   }
   return item
 }

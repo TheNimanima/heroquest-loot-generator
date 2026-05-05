@@ -1,0 +1,28 @@
+{
+  "id": "silvered-chains-of-vael-c34iry",
+  "name": "Silvered Chains of Vael",
+  "tier": 3,
+  "slot": "Armor",
+  "attackDice": 0,
+  "defenseDice": 2,
+  "effect": "Roll 2 defense dice. When defending against a Chaos Warrior, roll 1 additional defense die. Does not halve movement.",
+  "flavorText": "The tarnished silver links were forged in a monastery the Chaos legions burned, and the metal has not forgotten.",
+  "heroRestriction": "Barbarian, Dwarf, Elf, Knight, Warlock, Berserker",
+  "tags": {
+    "heroes": [
+      "Barbarian",
+      "Dwarf",
+      "Elf",
+      "Knight",
+      "Warlock",
+      "Berserker"
+    ],
+    "themes": [
+      "tarnished silver",
+      "effective against Chaos Warriors"
+    ]
+  },
+  "model": "claude-opus-4-7",
+  "createdAt": "2026-04-23T23:00:30.094Z",
+  "imageUrl": null
+}

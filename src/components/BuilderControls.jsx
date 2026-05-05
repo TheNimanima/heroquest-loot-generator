@@ -64,6 +64,7 @@ export default function BuilderControls({ item, onDiscard, onRegenerate, isLoadi
         effect: item.effect,
         flavorText: item.flavorText,
         heroRestriction: item.heroRestriction,
+        expansion: item._expansion || null,
         tags: {
           heroes: tagsFromHeroRestriction(item.heroRestriction),
           themes: themesFromSeed(item._seed),

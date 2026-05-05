@@ -38,6 +38,30 @@ const HEROES = [
   { value: 'Explorer', label: 'Explorer' },
 ]
 
+const EXPANSIONS = [
+  { group: '', items: [{ value: '', label: 'Any Expansion' }] },
+  { group: 'Core Set', items: [{ value: 'Base Game', label: 'Base Game' }] },
+  { group: 'Classic Expansions', items: [
+    { value: "Kellar's Keep", label: "Kellar's Keep" },
+    { value: 'Return of the Witch Lord', label: 'Return of the Witch Lord' },
+    { value: 'Against the Ogre Horde', label: 'Against the Ogre Horde' },
+    { value: 'Wizards of Morcar', label: 'Wizards of Morcar' },
+  ]},
+  { group: 'Quest Packs (Avalon Hill)', items: [
+    { value: 'Prophecy of Telor', label: 'Prophecy of Telor' },
+    { value: "Spirit Queen's Torment", label: "Spirit Queen's Torment" },
+    { value: 'Mage of the Mirror', label: 'Mage of the Mirror' },
+    { value: 'Rise of the Dread Moon', label: 'Rise of the Dread Moon' },
+    { value: 'Jungles of Delthrak', label: 'Jungles of Delthrak' },
+    { value: 'Crypt of Perpetual Darkness', label: 'Crypt of Perpetual Darkness' },
+  ]},
+  { group: 'Hero Collections', items: [
+    { value: 'Commander of the Guardian Knights', label: 'Commander of the Guardian Knights' },
+    { value: 'Rogue Heir of Elethorn', label: 'Rogue Heir of Elethorn' },
+    { value: 'Path of the Wandering Monk', label: 'Path of the Wandering Monk' },
+  ]},
+]
+
 const selectStyle = {
   width: '100%',
   padding: '10px 12px',
@@ -66,7 +90,7 @@ const labelStyle = {
   textTransform: 'uppercase',
 }
 
-export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotChange, onHeroChange, onGenerate, isLoading, buttonLabel }) {
+export default function SelectionPanel({ tier, slot, hero, expansion, onTierChange, onSlotChange, onHeroChange, onExpansionChange, onGenerate, isLoading, buttonLabel }) {
   const handleSubmit = (e) => {
     e.preventDefault()
     onGenerate()
@@ -118,6 +142,30 @@ export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotC
           </select>
         </div>
 
+        {/* Expansion selector */}
+        <div>
+          <label style={labelStyle}>From Expansion</label>
+          <select
+            value={expansion || ''}
+            onChange={e => onExpansionChange(e.target.value)}
+            style={selectStyle}
+          >
+            {EXPANSIONS.map((g, i) => (
+              g.group ? (
+                <optgroup key={g.group} label={g.group}>
+                  {g.items.map(opt => (
+                    <option key={opt.value} value={opt.value}>{opt.label}</option>
+                  ))}
+                </optgroup>
+              ) : (
+                g.items.map(opt => (
+                  <option key={opt.value || `_blank-${i}`} value={opt.value}>{opt.label}</option>
+                ))
+              )
+            ))}
+          </select>
+        </div>
+
         {/* Hint text */}
         <p style={{
           fontSize: 12,
@@ -126,7 +174,7 @@ export default function SelectionPanel({ tier, slot, hero, onTierChange, onSlotC
           margin: '0 0 4px',
           lineHeight: 1.4,
         }}>
-          {(!tier && !slot && !hero)
+          {(!tier && !slot && !hero && !expansion)
             ? 'Leave all blank for a fully random loot drop.'
             : 'Unset fields will be chosen freely by the generator.'}
         </p>
